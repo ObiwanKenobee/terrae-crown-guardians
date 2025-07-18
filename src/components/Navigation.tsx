@@ -1,16 +1,19 @@
 import { useState } from "react";
 import { Crown, Menu, X, Shield, Globe, Scroll, Award, Users, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Link, useLocation } from "react-router-dom";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
 
+  const location = useLocation();
+  
   const navItems = [
-    { name: "Crown Bioregions", href: "#bioregions", icon: Globe },
-    { name: "Kenya Accord", href: "#kenya", icon: MapPin },
-    { name: "Royal Legacy", href: "#legacy", icon: Scroll },
-    { name: "Service Index", href: "#service", icon: Award },
-    { name: "Join the Pact", href: "#join", icon: Users }
+    { name: "Crown Bioregions", href: "/crown-bioregions", icon: Globe },
+    { name: "Kenya Accord", href: "/kenya-accord", icon: MapPin },
+    { name: "Royal Legacy", href: "/royal-legacy", icon: Scroll },
+    { name: "Service Index", href: "/service-index", icon: Award },
+    { name: "Join the Pact", href: "/join-pact", icon: Users }
   ];
 
   return (
@@ -18,23 +21,27 @@ const Navigation = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <div className="flex items-center space-x-2">
+          <Link to="/" className="flex items-center space-x-2">
             <Crown className="w-8 h-8 text-gold" />
             <span className="font-serif text-xl font-bold text-primary">AEGIS</span>
             <span className="text-muted-foreground text-sm">Regina Terrae</span>
-          </div>
+          </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             {navItems.map((item) => (
-              <a 
+              <Link 
                 key={item.name}
-                href={item.href}
-                className="flex items-center space-x-1 text-foreground hover:text-primary transition-colors duration-200"
+                to={item.href}
+                className={`flex items-center space-x-1 transition-colors duration-200 ${
+                  location.pathname === item.href 
+                    ? 'text-primary' 
+                    : 'text-foreground hover:text-primary'
+                }`}
               >
                 <item.icon className="w-4 h-4" />
                 <span className="text-sm font-medium">{item.name}</span>
-              </a>
+              </Link>
             ))}
             
             <Button 
@@ -64,15 +71,19 @@ const Navigation = () => {
           <div className="md:hidden border-t border-border bg-background">
             <div className="px-2 pt-2 pb-3 space-y-1">
               {navItems.map((item) => (
-                <a
+                <Link
                   key={item.name}
-                  href={item.href}
-                  className="flex items-center space-x-3 px-3 py-2 rounded-md text-foreground hover:bg-muted transition-colors duration-200"
+                  to={item.href}
+                  className={`flex items-center space-x-3 px-3 py-2 rounded-md transition-colors duration-200 ${
+                    location.pathname === item.href 
+                      ? 'text-primary bg-muted' 
+                      : 'text-foreground hover:bg-muted'
+                  }`}
                   onClick={() => setIsOpen(false)}
                 >
                   <item.icon className="w-5 h-5" />
                   <span className="font-medium">{item.name}</span>
-                </a>
+                </Link>
               ))}
               
               <div className="px-3 py-2">
