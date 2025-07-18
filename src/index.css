@@ -2,41 +2,65 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
+/* AEGIS: Regina Terrae Design System - Royal Earth Palette
+All colors MUST be HSL - inspired by sacred bioregions and regal nature.
 */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Base earth tones */
+    --background: 45 15% 96%;
+    --foreground: 120 25% 8%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    /* Card system - stone and earth */
+    --card: 45 20% 98%;
+    --card-foreground: 120 25% 8%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 45 20% 98%;
+    --popover-foreground: 120 25% 8%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Primary - Deep forest green */
+    --primary: 120 45% 12%;
+    --primary-foreground: 45 25% 98%;
+    --primary-glow: 120 35% 25%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Secondary - Earth brown */
+    --secondary: 30 35% 85%;
+    --secondary-foreground: 120 45% 12%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Muted - Stone gray */
+    --muted: 45 12% 88%;
+    --muted-foreground: 120 15% 35%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Accent - Royal purple */
+    --accent: 260 45% 25%;
+    --accent-foreground: 45 25% 98%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    /* Royal gold accent */
+    --gold: 45 85% 55%;
+    --gold-foreground: 120 45% 12%;
 
-    --radius: 0.5rem;
+    /* Borders and inputs - earth tones */
+    --border: 45 20% 85%;
+    --input: 45 20% 90%;
+    --ring: 120 45% 12%;
+
+    --radius: 0.75rem;
+
+    /* Custom gradients for royal earth theme */
+    --gradient-royal: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--accent)) 100%);
+    --gradient-earth: linear-gradient(135deg, hsl(var(--secondary)) 0%, hsl(var(--gold)) 100%);
+    --gradient-forest: linear-gradient(180deg, hsl(var(--primary-glow)) 0%, hsl(var(--primary)) 100%);
+    
+    /* Shadows with earth tones */
+    --shadow-royal: 0 10px 30px -10px hsl(var(--primary) / 0.3);
+    --shadow-earth: 0 4px 20px -5px hsl(var(--accent) / 0.2);
+    
+    /* Animations */
+    --transition-royal: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 
     --sidebar-background: 0 0% 98%;
 
