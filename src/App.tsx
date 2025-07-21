@@ -12,6 +12,9 @@ import RoyalLegacy from "./pages/RoyalLegacy";
 import ServiceIndex from "./pages/ServiceIndex";
 import JoinPact from "./pages/JoinPact";
 import Pricing from "./pages/Pricing";
+import { CorporatePartnership } from "./components/CorporatePartnership";
+import { ImmersiveExperiences } from "./components/ImmersiveExperiences";
+import { WildlifeDiplomacy } from "./components/WildlifeDiplomacy";
 
 const queryClient = new QueryClient();
 
