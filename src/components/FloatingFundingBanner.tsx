@@ -35,12 +35,14 @@ const FloatingFundingBanner = ({
 
   if (!isVisible) return null;
 
-  const positionClasses = position === 'top' 
-    ? "top-0" 
-    : "bottom-0";
+  const positionClasses = floating ? (
+    position === 'top'
+      ? "fixed top-0 left-0 right-0 z-50"
+      : "fixed bottom-0 left-0 right-0 z-50"
+  ) : "relative w-full";
 
   return (
-    <div className={`fixed ${positionClasses} left-0 right-0 z-50 transition-all duration-300 ease-in-out`}>
+    <div className={`${positionClasses} transition-all duration-300 ease-in-out`}>
       {/* Compact Banner */}
       <div className="bg-gradient-to-r from-emerald-800 via-green-700 to-amber-800 text-white shadow-2xl">
         <div className="max-w-7xl mx-auto px-4 py-3">
