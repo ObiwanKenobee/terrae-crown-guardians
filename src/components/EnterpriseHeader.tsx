@@ -8,9 +8,13 @@ import {
   Globe, 
   Shield, 
   Users, 
-  Award, 
-  BarChart3, 
+  Award,
+  BarChart3,
   Settings,
+  Monitor,
+  Server,
+  Code,
+  Database,
   MapPin,
   Scroll,
   DollarSign,
@@ -111,6 +115,10 @@ export function EnterpriseHeader() {
       submenu: [
         { title: "Global Leaderboard", href: "/service-index", icon: BarChart3, description: "Impact rankings" },
         { title: "User Dashboard", href: "/dashboard", icon: User, description: "Personal metrics" },
+        { title: "Frontend Dashboard", href: "/dashboard/frontend", icon: Monitor, description: "UI/UX monitoring" },
+        { title: "Backend Dashboard", href: "/dashboard/backend", icon: Server, description: "System performance" },
+        { title: "API Dashboard", href: "/dashboard/api", icon: Code, description: "API analytics" },
+        { title: "Database Dashboard", href: "/dashboard/database", icon: Database, description: "Data management" },
         { title: "Impact Metrics", href: "/service-index#metrics", icon: Target, description: "Real-time data" }
       ]
     }
