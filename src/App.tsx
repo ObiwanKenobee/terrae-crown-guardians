@@ -32,7 +32,10 @@ const App = () => (
           <Route path="/royal-legacy" element={<RoyalLegacy />} />
           <Route path="/service-index" element={<ServiceIndex />} />
           <Route path="/join-pact" element={<JoinPact />} />
-          <Route path="/pricing" element={<Pricing />} />
+                    <Route path="/pricing" element={<Pricing />} />
+          <Route path="/partnerships" element={<CorporatePartnership />} />
+          <Route path="/immersive" element={<ImmersiveExperiences />} />
+          <Route path="/diplomacy" element={<WildlifeDiplomacy />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
