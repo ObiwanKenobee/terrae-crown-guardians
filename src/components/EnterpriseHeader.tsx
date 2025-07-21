@@ -369,22 +369,22 @@ export function EnterpriseHeader() {
                     <DropdownMenuLabel>My Account</DropdownMenuLabel>
                     <DropdownMenuSeparator />
                     <DropdownMenuItem asChild>
-                      <Link to="/steward-dashboard" className="flex items-center">
+                      <SmartDashboardLink className="flex items-center">
                         <User className="h-4 w-4 mr-2" />
                         Dashboard
-                      </Link>
+                      </SmartDashboardLink>
                     </DropdownMenuItem>
                     <DropdownMenuItem asChild>
-                      <Link to="/steward-dashboard" className="flex items-center">
+                      <SmartDashboardLink className="flex items-center">
                         <BarChart3 className="h-4 w-4 mr-2" />
                         Impact Metrics
-                      </Link>
+                      </SmartDashboardLink>
                     </DropdownMenuItem>
                     <DropdownMenuItem asChild>
-                      <Link to="/steward-dashboard" className="flex items-center">
+                      <SmartDashboardLink className="flex items-center">
                         <Settings className="h-4 w-4 mr-2" />
                         Settings
-                      </Link>
+                      </SmartDashboardLink>
                     </DropdownMenuItem>
                     <DropdownMenuSeparator />
                     <DropdownMenuItem onClick={logout} className="text-red-600">
