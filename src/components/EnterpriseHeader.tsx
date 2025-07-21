@@ -418,10 +418,11 @@ export function EnterpriseHeader() {
                 variant="ghost"
                 size="sm"
                 onClick={() => setIsOpen(!isOpen)}
-                className="lg:hidden p-2 min-h-[44px] min-w-[44px] flex items-center justify-center"
-                aria-label="Toggle menu"
+                className="lg:hidden p-3 min-h-[48px] min-w-[48px] flex items-center justify-center hover:bg-green-50 focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
+                aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
+                aria-expanded={isOpen}
               >
-                {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+                {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
               </Button>
             </div>
           </div>
