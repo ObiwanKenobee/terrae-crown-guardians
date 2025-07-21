@@ -20,13 +20,14 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <Routes>
+                <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/crown-bioregions" element={<CrownBioregions />} />
           <Route path="/kenya-accord" element={<KenyaAccord />} />
           <Route path="/royal-legacy" element={<RoyalLegacy />} />
           <Route path="/service-index" element={<ServiceIndex />} />
           <Route path="/join-pact" element={<JoinPact />} />
+          <Route path="/pricing" element={<Pricing />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
