@@ -477,17 +477,23 @@ export function EnterpriseHeader() {
                 </div>
               ))}
               
-              <div className="pt-4 border-t">
-                <div className="space-y-1">
+              <div className="pt-6 border-t border-gray-200">
+                <div className="mb-3">
+                  <h3 className="px-4 text-sm font-semibold text-gray-900 uppercase tracking-wider">Technology & Innovation</h3>
+                </div>
+                <div className="space-y-2">
                   {technologyNavItems.map((item) => (
                     <Link
                       key={item.href}
                       to={item.href}
-                      className="flex items-center px-3 py-2 text-sm text-gray-600 hover:text-purple-600 hover:bg-purple-50 rounded-md"
+                      className="flex items-start px-4 py-3 text-sm text-gray-600 hover:text-purple-600 hover:bg-purple-50 rounded-lg transition-all duration-200 min-h-[48px] focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2"
                       onClick={() => setIsOpen(false)}
                     >
-                      <item.icon className="h-4 w-4 mr-2" />
-                      {item.title}
+                      <item.icon className="h-4 w-4 mr-3 flex-shrink-0 mt-0.5" />
+                      <div className="flex-1 min-w-0">
+                        <p className="font-medium text-gray-900">{item.title}</p>
+                        <p className="text-xs text-gray-500 mt-1">{item.description}</p>
+                      </div>
                     </Link>
                   ))}
                 </div>
