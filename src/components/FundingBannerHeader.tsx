@@ -32,7 +32,8 @@ const FundingBannerHeader = ({ onClose, showCloseButton = true }: FundingBannerH
   const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <div className="relative w-full overflow-hidden bg-gradient-to-br from-emerald-900 via-green-800 to-amber-900 min-h-[400px]">
+    <div className="fixed top-0 left-0 right-0 z-50 w-full overflow-hidden bg-gradient-to-br from-emerald-900 via-green-800 to-amber-900 shadow-2xl border-b border-emerald-600"
+         style={{ backdropFilter: 'blur(10px)' }}>
       {/* Close Button */}
       {showCloseButton && onClose && (
         <button
