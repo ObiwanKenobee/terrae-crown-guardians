@@ -37,12 +37,28 @@ const FloatingFundingCard = ({ onClose }: FloatingFundingCardProps) => {
   useEffect(() => {
     // Auto-minimize on smaller screens after 5 seconds
     const timer = setTimeout(() => {
-      if (window.innerWidth < 768) {
+      if (window.innerWidth < 768 || window.innerHeight < 600) {
         setIsMinimized(true);
       }
     }, 5000);
 
-    return () => clearTimeout(timer);
+    // Handle scroll to minimize on mobile when scrolling down
+    let lastScrollY = window.scrollY;
+    const handleScroll = () => {
+      if (window.innerWidth < 768) {
+        if (window.scrollY > lastScrollY && window.scrollY > 100) {
+          setIsMinimized(true);
+        }
+        lastScrollY = window.scrollY;
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener('scroll', handleScroll);
+    };
   }, []);
 
   if (!isVisible) return null;
