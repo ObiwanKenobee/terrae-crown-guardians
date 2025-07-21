@@ -16,7 +16,7 @@ import {
   Youtube,
   Leaf,
   Heart,
-  Tree,
+  TreePine,
   Fish,
   Mountain,
   Download,
