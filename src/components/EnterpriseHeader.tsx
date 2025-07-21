@@ -148,7 +148,8 @@ export function EnterpriseHeader() {
             </Link>
 
             {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center space-x-1">
+            <nav className="hidden xl:flex items-center space-x-1">
+              {/* Full desktop navigation with all items */}
               {mainNavItems.map((item) => (
                 <DropdownMenu key={item.title}>
                   <DropdownMenuTrigger asChild>
