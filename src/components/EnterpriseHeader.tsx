@@ -115,7 +115,7 @@ export function EnterpriseHeader() {
       href: "/service-index",
       submenu: [
         { title: "Global Leaderboard", href: "/service-index", icon: BarChart3, description: "Impact rankings" },
-        { title: "Steward Dashboard", href: "/steward-dashboard", icon: User, description: "Personal metrics" },
+        { title: "Personal Dashboard", href: "/dashboard-selector", icon: User, description: "Your personalized dashboard" },
         { title: "Frontend Dashboard", href: "/dashboard/frontend", icon: Monitor, description: "UI/UX monitoring" },
         { title: "Backend Dashboard", href: "/dashboard/backend", icon: Server, description: "System performance" },
         { title: "API Dashboard", href: "/dashboard/api", icon: Code, description: "API analytics" },
