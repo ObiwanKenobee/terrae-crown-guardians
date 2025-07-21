@@ -4,6 +4,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AuthProvider } from "@/contexts/AuthContext";
+import { initializePaymentSystem, debugPaymentConfiguration } from "@/lib/paymentInit";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import CrownBioregions from "./pages/CrownBioregions";
@@ -24,6 +25,14 @@ import DatabaseDashboard from "./components/dashboards/DatabaseDashboard";
 import { EnterpriseLayout } from "./components/EnterpriseLayout";
 
 const queryClient = new QueryClient();
+
+// Initialize payment system on app startup
+const paymentInitResult = initializePaymentSystem();
+
+// Debug payment configuration in development
+if (import.meta.env.VITE_APP_ENVIRONMENT === 'development') {
+  debugPaymentConfiguration();
+}
 
 const App = () => (
   <QueryClientProvider client={queryClient}>

@@ -19,7 +19,7 @@ const Navigation = () => {
   const location = useLocation();
   const { user, isAuthenticated, logout, hasCompletedOnboarding, isLoading } = useAuth();
   
-    const navItems = [
+  const navItems = [
     { name: "Crown Bioregions", href: "/crown-bioregions", icon: Globe },
     { name: "Kenya Accord", href: "/kenya-accord", icon: MapPin },
     { name: "Royal Legacy", href: "/royal-legacy", icon: Scroll },
@@ -28,7 +28,7 @@ const Navigation = () => {
     { name: "Pricing", href: "/pricing", icon: DollarSign },
     { name: "Partnerships", href: "/partnerships", icon: Building2 },
     { name: "Immersive", href: "/immersive", icon: Headphones },
-        { name: "Diplomacy AI", href: "/diplomacy", icon: Scale },
+    { name: "Diplomacy AI", href: "/diplomacy", icon: Scale },
     { name: "Dashboard", href: "/dashboard", icon: BarChart3 }
   ];
 
@@ -67,30 +67,55 @@ const Navigation = () => {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+        <div className="flex justify-between items-center h-16 sm:h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2">
-            <Crown className="w-8 h-8 text-gold" />
-            <span className="font-serif text-xl font-bold text-primary">AEGIS</span>
-            <span className="text-muted-foreground text-sm">Regina Terrae</span>
+          <Link to="/" className="flex items-center space-x-2 sm:space-x-3 group">
+            <Crown className="w-6 h-6 sm:w-8 sm:h-8 text-gold group-hover:scale-105 transition-transform" />
+            <div className="flex flex-col sm:flex-row sm:items-center sm:space-x-2">
+              <span className="font-serif text-lg sm:text-xl font-bold text-primary">AEGIS</span>
+              <span className="text-muted-foreground text-xs sm:text-sm hidden sm:block">Regina Terrae</span>
+            </div>
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            {navItems.map((item) => (
+          <div className="hidden lg:flex items-center space-x-6 xl:space-x-8">
+            {navItems.slice(0, 6).map((item) => (
               <Link 
                 key={item.name}
                 to={item.href}
-                className={`flex items-center space-x-1 transition-colors duration-200 ${
+                className={`flex items-center space-x-1 px-2 py-1 rounded-md transition-all duration-200 ${
                   location.pathname === item.href 
-                    ? 'text-primary' 
-                    : 'text-foreground hover:text-primary'
+                    ? 'text-primary bg-primary/10' 
+                    : 'text-foreground hover:text-primary hover:bg-primary/5'
                 }`}
               >
                 <item.icon className="w-4 h-4" />
                 <span className="text-sm font-medium">{item.name}</span>
               </Link>
             ))}
+            
+            {/* More Menu for remaining items */}
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="ghost" size="sm" className="flex items-center space-x-1">
+                  <Settings className="w-4 h-4" />
+                  <span className="text-sm font-medium">More</span>
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end" className="w-56">
+                {navItems.slice(6).map((item) => (
+                  <DropdownMenuItem key={item.name} asChild>
+                    <Link 
+                      to={item.href}
+                      className="flex items-center space-x-2 w-full"
+                    >
+                      <item.icon className="w-4 h-4" />
+                      <span>{item.name}</span>
+                    </Link>
+                  </DropdownMenuItem>
+                ))}
+              </DropdownMenuContent>
+            </DropdownMenu>
             
             {/* Authentication Section */}
             {!isLoading && (
@@ -177,17 +202,108 @@ const Navigation = () => {
                     </DropdownMenuContent>
                   </DropdownMenu>
                 ) : (
-                  <div className="flex items-center gap-2">
-                    <Button variant="ghost" size="sm" onClick={handleLogin}>
+                  <div className="flex items-center gap-1 sm:gap-2">
+                    <Button variant="ghost" size="sm" onClick={handleLogin} className="text-xs sm:text-sm px-2 sm:px-3">
                       Sign In
                     </Button>
                     <Button 
                       size="sm" 
                       onClick={handleRegister}
-                      className="bg-gradient-royal text-primary-foreground hover:opacity-90"
+                      className="bg-gradient-royal text-primary-foreground hover:opacity-90 text-xs sm:text-sm px-2 sm:px-3"
                     >
-                      <Shield className="mr-2 h-4 w-4" />
-                      Join AEGIS
+                      <Shield className="mr-1 sm:mr-2 h-3 w-3 sm:h-4 sm:w-4" />
+                      <span className="hidden sm:inline">Join AEGIS</span>
+                      <span className="sm:hidden">Join</span>
+                    </Button>
+                  </div>
+                )}
+              </>
+            )}
+          </div>
+
+          {/* Tablet Navigation - Condensed */}
+          <div className="hidden md:flex lg:hidden items-center space-x-4">
+            {navItems.slice(0, 4).map((item) => (
+              <Link 
+                key={item.name}
+                to={item.href}
+                className={`flex items-center space-x-1 px-2 py-1 rounded-md transition-all duration-200 ${
+                  location.pathname === item.href 
+                    ? 'text-primary bg-primary/10' 
+                    : 'text-foreground hover:text-primary hover:bg-primary/5'
+                }`}
+              >
+                <item.icon className="w-4 h-4" />
+                <span className="text-xs font-medium">{item.name.split(' ')[0]}</span>
+              </Link>
+            ))}
+            
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="ghost" size="sm" className="flex items-center space-x-1">
+                  <Settings className="w-4 h-4" />
+                  <span className="text-xs font-medium">More</span>
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end" className="w-48">
+                {navItems.slice(4).map((item) => (
+                  <DropdownMenuItem key={item.name} asChild>
+                    <Link 
+                      to={item.href}
+                      className="flex items-center space-x-2 w-full"
+                    >
+                      <item.icon className="w-4 h-4" />
+                      <span className="text-sm">{item.name}</span>
+                    </Link>
+                  </DropdownMenuItem>
+                ))}
+              </DropdownMenuContent>
+            </DropdownMenu>
+
+            {/* Authentication Section for tablet */}
+            {!isLoading && (
+              <>
+                {isAuthenticated && user ? (
+                  <DropdownMenu>
+                    <DropdownMenuTrigger asChild>
+                      <Button variant="ghost" className="relative h-8 w-8 rounded-full">
+                        <Avatar className="h-8 w-8">
+                          <AvatarImage src={user.profile_picture} alt={user.full_name} />
+                          <AvatarFallback className="bg-primary/10 text-primary font-semibold text-xs">
+                            {getUserInitials(user.full_name)}
+                          </AvatarFallback>
+                        </Avatar>
+                        {!hasCompletedOnboarding && (
+                          <div className="absolute -top-1 -right-1 h-2 w-2 bg-red-500 rounded-full" />
+                        )}
+                      </Button>
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent className="w-64" align="end">
+                      <DropdownMenuLabel className="font-normal">
+                        <div className="flex flex-col space-y-1">
+                          <p className="text-sm font-medium leading-none">{user.full_name}</p>
+                          <p className="text-xs leading-none text-muted-foreground">{user.email}</p>
+                        </div>
+                      </DropdownMenuLabel>
+                      <DropdownMenuSeparator />
+                      <DropdownMenuItem onClick={handleLogout} className="text-red-600 focus:text-red-600">
+                        <LogOut className="mr-2 h-4 w-4" />
+                        Sign Out
+                      </DropdownMenuItem>
+                    </DropdownMenuContent>
+                  </DropdownMenu>
+                ) : (
+                  <div className="flex items-center gap-1">
+                    <Button variant="ghost" size="sm" onClick={handleLogin} className="text-xs px-2">
+                      Sign In
+                    </Button>
+                    <Button 
+                      size="sm" 
+                      onClick={handleRegister}
+                      className="bg-gradient-royal text-primary-foreground hover:opacity-90 text-xs px-2"
+                    >
+                      <Shield className="mr-1 h-3 w-3" />
+                      Join
                     </Button>
                   </div>
                 )}
@@ -201,60 +317,61 @@ const Navigation = () => {
               variant="ghost" 
               size="sm"
               onClick={() => setIsOpen(!isOpen)}
-              className="text-foreground"
+              className="text-foreground p-2 min-h-[44px] min-w-[44px] flex items-center justify-center"
+              aria-label="Toggle navigation menu"
             >
-              {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+              {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </Button>
           </div>
         </div>
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="md:hidden border-t border-border bg-background">
-            <div className="px-2 pt-2 pb-3 space-y-1">
+          <div className="md:hidden border-t border-border bg-background/95 backdrop-blur-lg max-h-[80vh] overflow-y-auto">
+            <div className="px-4 pt-4 pb-6 space-y-2">
               {navItems.map((item) => (
                 <Link
                   key={item.name}
                   to={item.href}
-                  className={`flex items-center space-x-3 px-3 py-2 rounded-md transition-colors duration-200 ${
+                  className={`flex items-center space-x-3 px-4 py-3 rounded-lg transition-all duration-200 min-h-[48px] ${
                     location.pathname === item.href 
-                      ? 'text-primary bg-muted' 
-                      : 'text-foreground hover:bg-muted'
+                      ? 'text-primary bg-primary/10 border border-primary/20' 
+                      : 'text-foreground hover:bg-muted hover:text-primary'
                   }`}
                   onClick={() => setIsOpen(false)}
                 >
-                  <item.icon className="w-5 h-5" />
-                  <span className="font-medium">{item.name}</span>
+                  <item.icon className="w-5 h-5 flex-shrink-0" />
+                  <span className="font-medium text-base">{item.name}</span>
                 </Link>
               ))}
               
               {/* Mobile Authentication */}
-              <div className="px-3 py-2 border-t border-border">
+              <div className="px-4 py-4 border-t border-border bg-muted/30 rounded-lg mt-4">
                 {!isLoading && (
                   <>
                     {isAuthenticated && user ? (
-                      <div className="space-y-3">
-                        <div className="flex items-center gap-3">
-                          <Avatar className="h-8 w-8">
+                      <div className="space-y-4">
+                        <div className="flex items-center gap-3 p-3 bg-background rounded-lg">
+                          <Avatar className="h-10 w-10">
                             <AvatarImage src={user.profile_picture} alt={user.full_name} />
-                            <AvatarFallback className="bg-primary/10 text-primary font-semibold text-sm">
+                            <AvatarFallback className="bg-primary/10 text-primary font-semibold">
                               {getUserInitials(user.full_name)}
                             </AvatarFallback>
                           </Avatar>
-                          <div>
-                            <div className="font-medium text-sm">{user.full_name}</div>
-                            <div className="text-xs text-muted-foreground">{USER_TYPE_LABELS[user.user_type]}</div>
+                          <div className="flex-1">
+                            <div className="font-medium text-base">{user.full_name}</div>
+                            <div className="text-sm text-muted-foreground">{USER_TYPE_LABELS[user.user_type]}</div>
                           </div>
                         </div>
                         
                         {!hasCompletedOnboarding && (
                           <Button
-                            size="sm"
+                            size="default"
                             onClick={() => {
                               setOnboardingOpen(true);
                               setIsOpen(false);
                             }}
-                            className="w-full bg-orange-500 text-white hover:bg-orange-600"
+                            className="w-full bg-orange-500 text-white hover:bg-orange-600 min-h-[44px]"
                           >
                             <Settings className="mr-2 h-4 w-4" />
                             Complete Setup
@@ -263,34 +380,34 @@ const Navigation = () => {
                         
                         <Button
                           variant="outline"
-                          size="sm"
+                          size="default"
                           onClick={handleLogout}
-                          className="w-full text-red-600 border-red-200 hover:bg-red-50"
+                          className="w-full text-red-600 border-red-200 hover:bg-red-50 min-h-[44px]"
                         >
                           <LogOut className="mr-2 h-4 w-4" />
                           Sign Out
                         </Button>
                       </div>
                     ) : (
-                      <div className="space-y-2">
+                      <div className="space-y-3">
                         <Button 
                           variant="outline" 
-                          size="sm" 
+                          size="default" 
                           onClick={() => {
                             handleLogin();
                             setIsOpen(false);
                           }}
-                          className="w-full"
+                          className="w-full min-h-[44px]"
                         >
                           Sign In
                         </Button>
                         <Button 
-                          size="sm" 
+                          size="default" 
                           onClick={() => {
                             handleRegister();
                             setIsOpen(false);
                           }}
-                          className="w-full bg-gradient-royal text-primary-foreground hover:opacity-90"
+                          className="w-full bg-gradient-royal text-primary-foreground hover:opacity-90 min-h-[44px]"
                         >
                           <Shield className="mr-2 h-4 w-4" />
                           Join AEGIS

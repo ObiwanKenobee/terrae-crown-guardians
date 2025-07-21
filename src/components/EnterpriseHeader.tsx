@@ -418,10 +418,11 @@ export function EnterpriseHeader() {
                 variant="ghost"
                 size="sm"
                 onClick={() => setIsOpen(!isOpen)}
-                className="lg:hidden p-2 min-h-[44px] min-w-[44px] flex items-center justify-center"
-                aria-label="Toggle menu"
+                className="lg:hidden p-3 min-h-[48px] min-w-[48px] flex items-center justify-center hover:bg-green-50 focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
+                aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
+                aria-expanded={isOpen}
               >
-                {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+                {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
               </Button>
             </div>
           </div>
@@ -445,30 +446,30 @@ export function EnterpriseHeader() {
 
         {/* Mobile Menu */}
         {isOpen && (
-          <div className="lg:hidden border-t bg-white/95 backdrop-blur-lg max-h-[80vh] overflow-y-auto">
-            <div className="px-4 pt-4 pb-6 space-y-2">
+          <div className="lg:hidden border-t bg-white/98 backdrop-blur-lg max-h-[85vh] overflow-y-auto shadow-lg">
+            <div className="px-4 pt-6 pb-8 space-y-3">
               {mainNavItems.map((item) => (
                 <div key={item.title} className="space-y-2">
                   <Link
                     to={item.href}
-                    className="flex items-center px-4 py-3 text-base font-medium text-gray-700 hover:text-green-600 hover:bg-green-50 rounded-lg transition-colors min-h-[44px]"
+                    className="flex items-center px-4 py-4 text-base font-medium text-gray-700 hover:text-green-600 hover:bg-green-50 rounded-xl transition-all duration-200 min-h-[52px] focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
                     onClick={() => setIsOpen(false)}
                   >
-                    <item.icon className="h-5 w-5 mr-3 flex-shrink-0" />
-                    <span className="truncate">{item.title}</span>
+                    <item.icon className="h-5 w-5 mr-4 flex-shrink-0" />
+                    <span className="truncate font-semibold">{item.title}</span>
                   </Link>
-                  <div className="pl-6 space-y-1">
+                  <div className="pl-4 space-y-1">
                     {item.submenu.map((subItem) => (
                       <Link
                         key={subItem.href}
                         to={subItem.href}
-                        className="flex items-center px-4 py-2 text-sm text-gray-600 hover:text-green-600 hover:bg-green-50 rounded-lg transition-colors min-h-[40px]"
+                        className="flex items-start px-4 py-3 text-sm text-gray-600 hover:text-green-600 hover:bg-green-50 rounded-lg transition-all duration-200 min-h-[48px] focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
                         onClick={() => setIsOpen(false)}
                       >
-                        <subItem.icon className="h-4 w-4 mr-3 flex-shrink-0" />
-                        <div className="flex-1">
-                          <p className="font-medium">{subItem.title}</p>
-                          <p className="text-xs text-gray-500 hidden sm:block">{subItem.description}</p>
+                        <subItem.icon className="h-4 w-4 mr-3 flex-shrink-0 mt-0.5" />
+                        <div className="flex-1 min-w-0">
+                          <p className="font-medium text-gray-900">{subItem.title}</p>
+                          <p className="text-xs text-gray-500 mt-1 line-clamp-2">{subItem.description}</p>
                         </div>
                       </Link>
                     ))}
@@ -476,33 +477,51 @@ export function EnterpriseHeader() {
                 </div>
               ))}
               
-              <div className="pt-4 border-t">
-                <div className="space-y-1">
+              <div className="pt-6 border-t border-gray-200">
+                <div className="mb-3">
+                  <h3 className="px-4 text-sm font-semibold text-gray-900 uppercase tracking-wider">Technology & Innovation</h3>
+                </div>
+                <div className="space-y-2">
                   {technologyNavItems.map((item) => (
                     <Link
                       key={item.href}
                       to={item.href}
-                      className="flex items-center px-3 py-2 text-sm text-gray-600 hover:text-purple-600 hover:bg-purple-50 rounded-md"
+                      className="flex items-start px-4 py-3 text-sm text-gray-600 hover:text-purple-600 hover:bg-purple-50 rounded-lg transition-all duration-200 min-h-[48px] focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2"
                       onClick={() => setIsOpen(false)}
                     >
-                      <item.icon className="h-4 w-4 mr-2" />
-                      {item.title}
+                      <item.icon className="h-4 w-4 mr-3 flex-shrink-0 mt-0.5" />
+                      <div className="flex-1 min-w-0">
+                        <p className="font-medium text-gray-900">{item.title}</p>
+                        <p className="text-xs text-gray-500 mt-1">{item.description}</p>
+                      </div>
                     </Link>
                   ))}
                 </div>
               </div>
 
               {!isAuthenticated && (
-                <div className="pt-4 border-t">
-                  <Button 
-                    className="w-full bg-green-600 hover:bg-green-700 text-white"
-                    onClick={() => {
-                      setAuthModalOpen(true);
-                      setIsOpen(false);
-                    }}
-                  >
-                    Join the Pact
-                  </Button>
+                <div className="pt-6 border-t border-gray-200">
+                  <div className="space-y-3">
+                    <Button
+                      variant="outline"
+                      className="w-full border-green-200 text-green-700 hover:bg-green-50 min-h-[48px] text-base font-medium"
+                      onClick={() => {
+                        setAuthModalOpen(true);
+                        setIsOpen(false);
+                      }}
+                    >
+                      Sign In
+                    </Button>
+                    <Button
+                      className="w-full bg-green-600 hover:bg-green-700 text-white min-h-[48px] text-base font-medium shadow-lg"
+                      onClick={() => {
+                        setAuthModalOpen(true);
+                        setIsOpen(false);
+                      }}
+                    >
+                      Join the Pact
+                    </Button>
+                  </div>
                 </div>
               )}
             </div>
@@ -512,59 +531,66 @@ export function EnterpriseHeader() {
 
       {/* Sticky Navigation Bar */}
       {isScrolled && (
-        <div className="fixed top-16 sm:top-20 left-0 right-0 z-40 bg-green-50/90 backdrop-blur-lg border-b border-green-100">
+        <div className="fixed top-16 sm:top-20 left-0 right-0 z-40 bg-green-50/95 backdrop-blur-lg border-b border-green-100 shadow-sm">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex items-center justify-between py-2">
+            <div className="flex items-center justify-between py-3 sm:py-2">
               <div className="hidden lg:flex items-center space-x-6 text-sm">
-                <Link to="/dashboard" className="flex items-center space-x-1 text-green-700 hover:text-green-900">
+                <Link to="/dashboard" className="flex items-center space-x-1 text-green-700 hover:text-green-900 transition-colors">
                   <User className="h-4 w-4" />
                   <span>Dashboard</span>
                 </Link>
-                <Link to="/news" className="flex items-center space-x-1 text-green-700 hover:text-green-900">
+                <Link to="/news" className="flex items-center space-x-1 text-green-700 hover:text-green-900 transition-colors">
                   <Bell className="h-4 w-4" />
                   <span>News & Events</span>
                 </Link>
                 <div className="flex items-center space-x-1 text-green-700">
                   <Earth className="h-4 w-4" />
-                  <span>132K tons CO₂ offset</span>
+                  <span className="font-medium">132K tons CO₂ offset</span>
                 </div>
                 <div className="flex items-center space-x-1 text-green-700">
                   <Leaf className="h-4 w-4" />
-                  <span>2.4K hectares restored</span>
+                  <span className="font-medium">2.4K hectares restored</span>
                 </div>
               </div>
 
               {/* Compact metrics for tablet */}
-              <div className="hidden md:flex lg:hidden items-center space-x-4 text-xs">
+              <div className="hidden md:flex lg:hidden items-center space-x-4 text-sm">
                 <div className="flex items-center space-x-1 text-green-700">
                   <Earth className="h-3 w-3" />
-                  <span>132K CO₂</span>
+                  <span className="font-medium">132K CO₂</span>
                 </div>
                 <div className="flex items-center space-x-1 text-green-700">
                   <Leaf className="h-3 w-3" />
-                  <span>2.4K hectares</span>
+                  <span className="font-medium">2.4K hectares</span>
                 </div>
               </div>
 
               {/* Mobile metrics */}
-              <div className="md:hidden flex items-center space-x-2 text-xs">
+              <div className="md:hidden flex items-center space-x-3 text-sm">
                 <div className="flex items-center text-green-700">
                   <Earth className="h-3 w-3 mr-1" />
-                  <span>132K</span>
+                  <span className="font-medium">132K</span>
                 </div>
                 <div className="flex items-center text-green-700">
                   <Leaf className="h-3 w-3 mr-1" />
-                  <span>2.4K</span>
+                  <span className="font-medium">2.4K</span>
                 </div>
               </div>
 
-              <div className="flex items-center space-x-1 sm:space-x-2">
-                <Button size="sm" variant="outline" className="text-green-700 border-green-300 text-xs sm:text-sm px-2 sm:px-3">
-                  <Globe className="h-3 w-3 sm:h-4 sm:w-4 mr-1" />
+              <div className="flex items-center space-x-2 sm:space-x-3">
+                <Button
+                  size="sm"
+                  variant="outline"
+                  className="text-green-700 border-green-300 hover:bg-green-100 text-xs sm:text-sm px-3 sm:px-4 min-h-[36px] sm:min-h-[40px]"
+                >
+                  <Globe className="h-3 w-3 sm:h-4 sm:w-4 mr-1 sm:mr-2" />
                   <span className="hidden sm:inline">Explore Map</span>
                   <span className="sm:hidden">Map</span>
                 </Button>
-                <Button size="sm" className="bg-green-600 hover:bg-green-700 text-white text-xs sm:text-sm px-2 sm:px-3">
+                <Button
+                  size="sm"
+                  className="bg-green-600 hover:bg-green-700 text-white text-xs sm:text-sm px-3 sm:px-4 min-h-[36px] sm:min-h-[40px] shadow-md"
+                >
                   <span className="hidden sm:inline">Donate Now</span>
                   <span className="sm:hidden">Donate</span>
                 </Button>

@@ -13,7 +13,7 @@ export function EnterpriseLayout({ children, showHero = false }: EnterpriseLayou
       <EnterpriseHeader />
       
       {/* Main Content */}
-      <main className={`flex-1 ${showHero ? '' : 'pt-20'}`}>
+      <main className={`flex-1 ${showHero ? '' : 'pt-16 sm:pt-20'}`}>
         {children}
       </main>
       
