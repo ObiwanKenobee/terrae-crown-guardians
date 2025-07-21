@@ -56,7 +56,9 @@ const FloatingFundingBanner = ({
                   <Crown className="h-6 w-6 text-amber-400" fill="currentColor" />
                   <Leaf className="absolute -top-1 -right-1 h-3 w-3 text-emerald-300" />
                 </div>
-                <Badge className="bg-amber-100 text-amber-800 border-amber-300 text-xs font-semibold">
+                <Badge className={`bg-amber-100 text-amber-800 border-amber-300 text-xs font-semibold ${
+                  !floating ? 'animate-pulse' : ''
+                }`}>
                   <Sparkles className="h-3 w-3 mr-1" />
                   Series A Open
                 </Badge>
