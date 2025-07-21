@@ -570,55 +570,57 @@ export function EnterpriseHeader() {
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         {/* Background Image with Overlay */}
         <div className="absolute inset-0">
-          <img 
-            src="/api/placeholder/1920/1080" 
+          <img
+            src="/api/placeholder/1920/1080"
             alt="Sacred bioregion landscape"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-green-900/70 via-green-800/50 to-blue-900/70"></div>
         </div>
-        
+
         {/* Hero Content */}
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 font-serif">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-16 sm:pt-20">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-4 sm:mb-6 font-serif leading-tight">
             Join the Sacred Duty to
-            <span className="block text-green-300">Regenerate Earth</span>
+            <span className="block text-green-300 mt-2">Regenerate Earth</span>
           </h1>
-          
-          <p className="text-xl md:text-2xl text-green-100 mb-8 max-w-3xl mx-auto">
+
+          <p className="text-lg sm:text-xl lg:text-2xl text-green-100 mb-6 sm:mb-8 max-w-4xl mx-auto leading-relaxed">
             Protect Earth's Crown – Contribute to the regeneration of our planet's most sacred ecosystems through AI, blockchain, and indigenous wisdom.
           </p>
-          
-          <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6 mb-12">
-            <Button size="lg" className="bg-green-600 hover:bg-green-700 text-white px-8 py-4 text-lg">
-              <Globe className="h-5 w-5 mr-2" />
-              Explore the Bioregions
+
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 lg:gap-6 mb-8 sm:mb-12">
+            <Button size="lg" className="bg-green-600 hover:bg-green-700 text-white px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg w-full sm:w-auto">
+              <Globe className="h-4 w-4 sm:h-5 sm:w-5 mr-2" />
+              <span className="sm:hidden">Explore Bioregions</span>
+              <span className="hidden sm:inline">Explore the Bioregions</span>
             </Button>
-            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-green-900 px-8 py-4 text-lg">
-              <Users className="h-5 w-5 mr-2" />
-              Become a Steward
+            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-green-900 px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg w-full sm:w-auto">
+              <Users className="h-4 w-4 sm:h-5 sm:w-5 mr-2" />
+              <span className="sm:hidden">Become Steward</span>
+              <span className="hidden sm:inline">Become a Steward</span>
             </Button>
-            <Button size="lg" variant="ghost" className="text-white hover:bg-white/10 px-8 py-4 text-lg">
-              <Award className="h-5 w-5 mr-2" />
+            <Button size="lg" variant="ghost" className="text-white hover:bg-white/10 px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg w-full sm:w-auto hidden sm:flex">
+              <Award className="h-4 w-4 sm:h-5 sm:w-5 mr-2" />
               Learn More
             </Button>
           </div>
 
           {/* Interactive Mini Globe */}
-          <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-6 max-w-md mx-auto">
-            <div className="flex items-center justify-center mb-4">
-              <div className="w-16 h-16 bg-gradient-to-br from-green-400 to-blue-500 rounded-full flex items-center justify-center">
-                <Globe className="h-8 w-8 text-white animate-pulse" />
+          <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-4 sm:p-6 max-w-xs sm:max-w-md mx-auto">
+            <div className="flex items-center justify-center mb-3 sm:mb-4">
+              <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-green-400 to-blue-500 rounded-full flex items-center justify-center">
+                <Globe className="h-6 w-6 sm:h-8 sm:w-8 text-white animate-pulse" />
               </div>
             </div>
             <p className="text-white text-sm mb-2">Live Global Impact</p>
-            <div className="grid grid-cols-2 gap-4 text-center">
+            <div className="grid grid-cols-2 gap-3 sm:gap-4 text-center">
               <div>
-                <p className="text-2xl font-bold text-green-300">89</p>
+                <p className="text-xl sm:text-2xl font-bold text-green-300">89</p>
                 <p className="text-xs text-green-100">Species Protected</p>
               </div>
               <div>
-                <p className="text-2xl font-bold text-blue-300">23</p>
+                <p className="text-xl sm:text-2xl font-bold text-blue-300">23</p>
                 <p className="text-xs text-blue-100">Communities Served</p>
               </div>
             </div>
