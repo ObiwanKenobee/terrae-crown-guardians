@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Crown, Menu, X, Shield, Globe, Scroll, Award, Users, MapPin } from "lucide-react";
+import { Crown, Menu, X, Shield, Globe, Scroll, Award, Users, MapPin, DollarSign } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link, useLocation } from "react-router-dom";
 
@@ -8,12 +8,13 @@ const Navigation = () => {
 
   const location = useLocation();
   
-  const navItems = [
+    const navItems = [
     { name: "Crown Bioregions", href: "/crown-bioregions", icon: Globe },
     { name: "Kenya Accord", href: "/kenya-accord", icon: MapPin },
     { name: "Royal Legacy", href: "/royal-legacy", icon: Scroll },
     { name: "Service Index", href: "/service-index", icon: Award },
-    { name: "Join the Pact", href: "/join-pact", icon: Users }
+    { name: "Join the Pact", href: "/join-pact", icon: Users },
+    { name: "Pricing", href: "/pricing", icon: DollarSign }
   ];
 
   return (
