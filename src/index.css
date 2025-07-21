@@ -1,9 +1,9 @@
+/* Import responsive utilities */
+@import './styles/responsive.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-/* Import responsive utilities */
-@import './styles/responsive.css';
 
 /* AEGIS: Regina Terrae Design System - Royal Earth Palette
 All colors MUST be HSL - inspired by sacred bioregions and regal nature.

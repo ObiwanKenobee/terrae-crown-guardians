@@ -1,6 +1,6 @@
 import { EnterpriseHeader } from './EnterpriseHeader';
 import { EnterpriseFooter } from './EnterpriseFooter';
-import ProminentFundingBanner from './ProminentFundingBanner';
+import FloatingFundingCard from './FloatingFundingCard';
 import { useFundingBanner } from '@/hooks/useFundingBanner';
 
 interface EnterpriseLayoutWithBannerProps {
@@ -21,15 +21,8 @@ export const EnterpriseLayoutWithBanner = ({
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-background">
-      {/* Funding Banner - Placed above everything */}
-      {bannerVisible && (
-        <ProminentFundingBanner
-          onClose={handleCloseBanner}
-        />
-      )}
-
-      {/* Main Header - Below the banner */}
+    <div className="min-h-screen flex flex-col bg-background relative">
+      {/* Main Header */}
       <EnterpriseHeader showHero={showHero} />
 
       {/* Main Content */}
@@ -39,6 +32,13 @@ export const EnterpriseLayoutWithBanner = ({
 
       {/* Footer */}
       <EnterpriseFooter />
+
+      {/* Floating Funding Card - Positioned over content */}
+      {bannerVisible && (
+        <FloatingFundingCard
+          onClose={handleCloseBanner}
+        />
+      )}
     </div>
   );
 };

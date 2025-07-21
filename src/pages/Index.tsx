@@ -91,18 +91,18 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       {/* Main Content - Hero is now handled by EnterpriseHeader */}
-      <div className="py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="py-8 sm:py-12 lg:py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-responsive">
           
           {/* User Dashboard Section (if authenticated) */}
           {isAuthenticated && user && !isLoading && (
-            <div className="mb-16">
-              <div className="flex items-center justify-between mb-8">
+            <div className="mb-8 sm:mb-12 lg:mb-16">
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-6 sm:mb-8 gap-4">
                 <div>
-                  <h2 className="text-3xl font-bold text-primary mb-2">
+                  <h2 className="text-2xl sm:text-3xl font-bold text-primary mb-2">
                     Welcome back, {user.full_name}! 👋
                   </h2>
-                  <p className="text-muted-foreground">
+                  <p className="text-sm sm:text-base text-muted-foreground">
                     Continue your regenerative journey and make an impact today
                   </p>
                 </div>
@@ -289,10 +289,10 @@ const Index = () => {
           )}
 
           {/* Global Impact Metrics */}
-          <div className="mb-16">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-primary mb-4">Global Regenerative Impact</h2>
-              <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <div className="mb-8 sm:mb-12 lg:mb-16">
+            <div className="text-center mb-8 sm:mb-12 space-responsive-sm">
+              <h2 className="text-2xl sm:text-3xl font-bold text-primary mb-4 text-responsive-2xl">Global Regenerative Impact</h2>
+              <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto text-responsive-lg">
                 Real-time transparency powered by blockchain technology. Every action is verified and tracked.
               </p>
             </div>
@@ -357,15 +357,15 @@ const Index = () => {
           </div>
 
           {/* Innovation Showcase */}
-          <div className="mb-16">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-primary mb-4">Revolutionary Features</h2>
-              <p className="text-xl text-muted-foreground">
+          <div className="mb-8 sm:mb-12 lg:mb-16">
+            <div className="text-center mb-8 sm:mb-12 space-responsive-sm">
+              <h2 className="text-2xl sm:text-3xl font-bold text-primary mb-4 text-responsive-2xl">Revolutionary Features</h2>
+              <p className="text-lg sm:text-xl text-muted-foreground text-responsive-lg">
                 Experience the future of environmental conservation with cutting-edge technology
               </p>
             </div>
 
-            <div className="grid lg:grid-cols-3 gap-8">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 grid-responsive">
               {/* Blockchain Transparency */}
               <Card className="hover:shadow-xl transition-shadow">
                 <CardHeader>
