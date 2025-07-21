@@ -222,22 +222,22 @@ export function EnterpriseHeader() {
             </nav>
 
             {/* Right Side Actions */}
-            <div className="flex items-center space-x-4">
-              {/* Search */}
+            <div className="flex items-center space-x-2 sm:space-x-4">
+              {/* Search - Hidden on mobile, icon only on tablet */}
               <Button
                 variant="ghost"
                 size="sm"
                 onClick={() => setSearchOpen(!searchOpen)}
-                className="hidden md:flex items-center space-x-2 text-gray-600 hover:text-green-600"
+                className="hidden sm:flex items-center space-x-2 text-gray-600 hover:text-green-600"
               >
                 <Search className="h-4 w-4" />
-                <span className="text-sm">Search</span>
+                <span className="text-sm hidden lg:inline">Search</span>
               </Button>
 
-              {/* Language Selector */}
+              {/* Language Selector - Icon only on tablet */}
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
-                  <Button variant="ghost" size="sm" className="hidden md:flex">
+                  <Button variant="ghost" size="sm" className="hidden sm:flex">
                     <Languages className="h-4 w-4" />
                   </Button>
                 </DropdownMenuTrigger>
@@ -250,10 +250,10 @@ export function EnterpriseHeader() {
                 </DropdownMenuContent>
               </DropdownMenu>
 
-              {/* Notifications */}
-              <Button variant="ghost" size="sm" className="relative hidden md:flex">
+              {/* Notifications - Hidden on mobile */}
+              <Button variant="ghost" size="sm" className="relative hidden sm:flex">
                 <Bell className="h-4 w-4" />
-                <Badge className="absolute -top-2 -right-2 h-5 w-5 text-xs bg-red-500 text-white border-white">
+                <Badge className="absolute -top-2 -right-2 h-4 w-4 sm:h-5 sm:w-5 text-xs bg-red-500 text-white border-white flex items-center justify-center">
                   3
                 </Badge>
               </Button>
