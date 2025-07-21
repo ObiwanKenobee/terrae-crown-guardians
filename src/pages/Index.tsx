@@ -40,7 +40,7 @@ const Index = () => {
   const [activeChallenges, setActiveChallenges] = useState<Challenge[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
-  const { user, isAuthenticated } = useAuth();
+  const { user, isAuthenticated, hasCompletedOnboarding } = useAuth();
 
   useEffect(() => {
     loadDashboardData();
