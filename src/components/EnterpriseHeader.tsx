@@ -536,10 +536,10 @@ export function EnterpriseHeader() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex items-center justify-between py-3 sm:py-2">
               <div className="hidden lg:flex items-center space-x-6 text-sm">
-                <Link to="/steward-dashboard" className="flex items-center space-x-1 text-green-700 hover:text-green-900 transition-colors">
+                <SmartDashboardLink className="flex items-center space-x-1 text-green-700 hover:text-green-900 transition-colors">
                   <User className="h-4 w-4" />
                   <span>Dashboard</span>
-                </Link>
+                </SmartDashboardLink>
                 <Link to="/news" className="flex items-center space-x-1 text-green-700 hover:text-green-900 transition-colors">
                   <Bell className="h-4 w-4" />
                   <span>News & Events</span>
