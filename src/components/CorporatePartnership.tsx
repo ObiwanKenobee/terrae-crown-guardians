@@ -188,7 +188,7 @@ export function CorporatePartnership() {
         </div>
 
         <Tabs defaultValue="overview" className="space-y-6">
-          <TabsList className="grid w-full grid-cols-5">
+          <TabsList className="grid w-full grid-cols-2 md:grid-cols-5 gap-1 md:gap-0 h-auto md:h-10">
             <TabsTrigger value="overview">Overview</TabsTrigger>
             <TabsTrigger value="partners">Partners</TabsTrigger>
             <TabsTrigger value="packages">Packages</TabsTrigger>
