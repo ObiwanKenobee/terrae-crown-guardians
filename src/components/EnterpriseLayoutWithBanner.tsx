@@ -22,16 +22,16 @@ export const EnterpriseLayoutWithBanner = ({
 
   return (
     <div className="min-h-screen flex flex-col bg-background">
-      {/* Floating Funding Banner */}
+      {/* Compact Floating Funding Banner */}
       {bannerVisible && (
-        <FundingBannerHeader
+        <FloatingFundingBanner
           onClose={handleCloseBanner}
-          showCloseButton={true}
+          position="top"
         />
       )}
 
-      {/* Main Header with top padding to account for floating banner */}
-      <div className={bannerVisible ? "pt-[180px]" : ""}>
+      {/* Main Header with minimal top padding to account for floating banner */}
+      <div className={bannerVisible ? "pt-16" : ""}>
         <EnterpriseHeader showHero={showHero} />
       </div>
 
