@@ -85,7 +85,7 @@ const FloatingFundingCard = ({ onClose }: FloatingFundingCardProps) => {
   }
 
   return (
-    <div className="fixed top-4 sm:top-20 right-4 z-50 w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl"
+    <div className="fixed top-4 sm:top-20 right-4 z-40 w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl"
          style={{
            maxWidth: 'calc(100vw - 2rem)',
            width: window.innerWidth < 640 ? 'calc(100vw - 2rem)' : 'auto'
