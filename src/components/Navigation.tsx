@@ -19,13 +19,16 @@ const Navigation = () => {
   const location = useLocation();
   const { user, isAuthenticated, logout, hasCompletedOnboarding, isLoading } = useAuth();
   
-  const navItems = [
+    const navItems = [
     { name: "Crown Bioregions", href: "/crown-bioregions", icon: Globe },
     { name: "Kenya Accord", href: "/kenya-accord", icon: MapPin },
     { name: "Royal Legacy", href: "/royal-legacy", icon: Scroll },
     { name: "Service Index", href: "/service-index", icon: Award },
     { name: "Join the Pact", href: "/join-pact", icon: Users },
-    { name: "Pricing", href: "/pricing", icon: DollarSign }
+    { name: "Pricing", href: "/pricing", icon: DollarSign },
+    { name: "Partnerships", href: "/partnerships", icon: Building2 },
+    { name: "Immersive", href: "/immersive", icon: Headphones },
+    { name: "Diplomacy AI", href: "/diplomacy", icon: Scale }
   ];
 
   const handleAuthSuccess = () => {
