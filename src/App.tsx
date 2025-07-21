@@ -27,6 +27,7 @@ import BackendDashboard from "./components/dashboards/BackendDashboard";
 import APIDashboard from "./components/dashboards/APIDashboard";
 import DatabaseDashboard from "./components/dashboards/DatabaseDashboard";
 import { EnterpriseLayout } from "./components/EnterpriseLayout";
+import { EnterpriseLayoutWithBanner } from "./components/EnterpriseLayoutWithBanner";
 
 const queryClient = new QueryClient();
 
