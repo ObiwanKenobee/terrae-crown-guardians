@@ -24,12 +24,11 @@ export const EnterpriseLayoutWithBanner = ({
     <div className="min-h-screen flex flex-col bg-background">
       {/* Funding Banner - Placed above everything */}
       {bannerVisible && (
-        <div className="relative w-full">
-          <FloatingFundingBanner
-            onClose={handleCloseBanner}
-            position="top"
-          />
-        </div>
+        <FloatingFundingBanner
+          onClose={handleCloseBanner}
+          position="top"
+          floating={false}
+        />
       )}
 
       {/* Main Header - Below the banner */}
