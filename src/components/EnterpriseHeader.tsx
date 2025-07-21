@@ -38,6 +38,7 @@ import { Badge } from './ui/badge';
 import { Input } from './ui/input';
 import { useAuth } from '../contexts/AuthContext';
 import AuthModal from './AuthModal';
+import SmartDashboardLink from './SmartDashboardLink';
 
 export function EnterpriseHeader() {
   const [isOpen, setIsOpen] = useState(false);
