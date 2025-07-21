@@ -27,22 +27,22 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
-                <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/crown-bioregions" element={<CrownBioregions />} />
-          <Route path="/kenya-accord" element={<KenyaAccord />} />
-          <Route path="/royal-legacy" element={<RoyalLegacy />} />
-          <Route path="/service-index" element={<ServiceIndex />} />
-          <Route path="/join-pact" element={<JoinPact />} />
-                    <Route path="/pricing" element={<Pricing />} />
-          <Route path="/partnerships" element={<CorporatePartnership />} />
-          <Route path="/immersive" element={<ImmersiveExperiences />} />
-                    <Route path="/diplomacy" element={<WildlifeDiplomacy />} />
-          <Route path="/dashboard" element={<StartupDashboard />} />
+        <Routes>
+          <Route path="/" element={<EnterpriseLayout showHero={true}><Index /></EnterpriseLayout>} />
+          <Route path="/crown-bioregions" element={<EnterpriseLayout><CrownBioregions /></EnterpriseLayout>} />
+          <Route path="/kenya-accord" element={<EnterpriseLayout><KenyaAccord /></EnterpriseLayout>} />
+          <Route path="/royal-legacy" element={<EnterpriseLayout><RoyalLegacy /></EnterpriseLayout>} />
+          <Route path="/service-index" element={<EnterpriseLayout><ServiceIndex /></EnterpriseLayout>} />
+          <Route path="/join-pact" element={<EnterpriseLayout><JoinPact /></EnterpriseLayout>} />
+          <Route path="/pricing" element={<EnterpriseLayout><Pricing /></EnterpriseLayout>} />
+          <Route path="/partnerships" element={<EnterpriseLayout><CorporatePartnership /></EnterpriseLayout>} />
+          <Route path="/immersive" element={<EnterpriseLayout><ImmersiveExperiences /></EnterpriseLayout>} />
+          <Route path="/diplomacy" element={<EnterpriseLayout><WildlifeDiplomacy /></EnterpriseLayout>} />
+          <Route path="/dashboard" element={<EnterpriseLayout><StartupDashboard /></EnterpriseLayout>} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
+          <Route path="*" element={<EnterpriseLayout><NotFound /></EnterpriseLayout>} />
         </Routes>
-            </BrowserRouter>
+      </BrowserRouter>
       </TooltipProvider>
     </AuthProvider>
   </QueryClientProvider>
