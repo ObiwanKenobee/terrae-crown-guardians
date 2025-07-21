@@ -26,6 +26,14 @@ import { EnterpriseLayout } from "./components/EnterpriseLayout";
 
 const queryClient = new QueryClient();
 
+// Initialize payment system on app startup
+const paymentInitResult = initializePaymentSystem();
+
+// Debug payment configuration in development
+if (import.meta.env.VITE_APP_ENVIRONMENT === 'development') {
+  debugPaymentConfiguration();
+}
+
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <AuthProvider>
