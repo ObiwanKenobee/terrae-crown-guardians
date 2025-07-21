@@ -23,7 +23,8 @@ import {
   Languages,
   ChevronDown,
   Leaf,
-  Earth
+  Earth,
+  Heart
 } from 'lucide-react';
 import { Button } from './ui/button';
 import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar';
