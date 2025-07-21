@@ -34,7 +34,7 @@ import {
   Terminal
 } from 'lucide-react';
 
-export function BackendDashboard() {
+const BackendDashboard: React.FC = () => {
   const [serverStatus, setServerStatus] = useState({
     mainServer: 'healthy',
     apiGateway: 'healthy',
@@ -695,4 +695,6 @@ export function BackendDashboard() {
       </Tabs>
     </div>
   );
-}
+};
+
+export default BackendDashboard;
