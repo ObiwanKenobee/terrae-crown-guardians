@@ -222,6 +222,87 @@ export function EnterpriseHeader() {
               </DropdownMenu>
             </nav>
 
+            {/* Tablet Navigation - Condensed */}
+            <nav className="hidden lg:flex xl:hidden items-center space-x-1">
+              {mainNavItems.slice(0, 4).map((item) => (
+                <DropdownMenu key={item.title}>
+                  <DropdownMenuTrigger asChild>
+                    <Button
+                      variant="ghost"
+                      className="flex items-center space-x-1 px-2 py-2 text-gray-700 hover:text-green-600 hover:bg-green-50"
+                    >
+                      <item.icon className="h-4 w-4" />
+                      <span className="text-xs font-medium">{item.title.split(' ')[0]}</span>
+                      <ChevronDown className="h-3 w-3" />
+                    </Button>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent className="w-72 p-2">
+                    <DropdownMenuLabel className="flex items-center text-green-700">
+                      <item.icon className="h-4 w-4 mr-2" />
+                      {item.title}
+                    </DropdownMenuLabel>
+                    <DropdownMenuSeparator />
+                    {item.submenu.map((subItem) => (
+                      <DropdownMenuItem key={subItem.href} asChild>
+                        <Link
+                          to={subItem.href}
+                          className="flex items-start space-x-3 p-2 rounded-lg hover:bg-green-50 cursor-pointer"
+                        >
+                          <subItem.icon className="h-4 w-4 text-green-600 mt-0.5" />
+                          <div>
+                            <p className="font-medium text-gray-900 text-sm">{subItem.title}</p>
+                            <p className="text-xs text-gray-600">{subItem.description}</p>
+                          </div>
+                        </Link>
+                      </DropdownMenuItem>
+                    ))}
+                  </DropdownMenuContent>
+                </DropdownMenu>
+              ))}
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button
+                    variant="ghost"
+                    className="flex items-center space-x-1 px-2 py-2 text-gray-700 hover:text-purple-600 hover:bg-purple-50"
+                  >
+                    <Settings className="h-4 w-4" />
+                    <span className="text-xs font-medium">More</span>
+                    <ChevronDown className="h-3 w-3" />
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent className="w-72 p-2">
+                  <DropdownMenuLabel className="flex items-center text-purple-700">
+                    <Settings className="h-4 w-4 mr-2" />
+                    More Options
+                  </DropdownMenuLabel>
+                  <DropdownMenuSeparator />
+                  {mainNavItems.slice(4).map((item) => (
+                    <DropdownMenuItem key={item.href} asChild>
+                      <Link
+                        to={item.href}
+                        className="flex items-center space-x-3 p-2 rounded-lg hover:bg-green-50 cursor-pointer"
+                      >
+                        <item.icon className="h-4 w-4 text-green-600" />
+                        <span className="font-medium text-gray-900 text-sm">{item.title}</span>
+                      </Link>
+                    </DropdownMenuItem>
+                  ))}
+                  <DropdownMenuSeparator />
+                  {technologyNavItems.map((item) => (
+                    <DropdownMenuItem key={item.href} asChild>
+                      <Link
+                        to={item.href}
+                        className="flex items-center space-x-3 p-2 rounded-lg hover:bg-purple-50 cursor-pointer"
+                      >
+                        <item.icon className="h-4 w-4 text-purple-600" />
+                        <span className="font-medium text-gray-900 text-sm">{item.title}</span>
+                      </Link>
+                    </DropdownMenuItem>
+                  ))}
+                </DropdownMenuContent>
+              </DropdownMenu>
+            </nav>
+
             {/* Right Side Actions */}
             <div className="flex items-center space-x-2 sm:space-x-4">
               {/* Search - Hidden on mobile, icon only on tablet */}
