@@ -9,29 +9,85 @@ class PaymentService {
     this.baseURL = `${config.apiBaseUrl}/payment`;
   }
 
-  // Simulate payment processing for different regions
+  // Process payment with environment-aware configuration
   async processPayment(
     paymentMethod: PaymentMethod,
     paymentData: PaymentData,
     billingInfo: BillingInfo
   ): Promise<PaymentResponse> {
     try {
-      // Simulate API call delay
-      await new Promise(resolve => setTimeout(resolve, 2000));
+      const config = paymentConfigService.getGeneralConfig();
+      const providerConfig = paymentConfigService.getProviderConfig(paymentMethod.processor);
+
+      // Check if provider is configured
+      if (!paymentConfigService.isProviderConfigured(paymentMethod.processor)) {
+        console.warn(`Payment provider ${paymentMethod.processor} is not configured`);
+        return {
+          success: false,
+          error_message: 'Payment method is temporarily unavailable.'
+        };
+      }
+
+      // Use simulation delay from environment or default
+      await new Promise(resolve => setTimeout(resolve, config.simulationDelay));
 
       const payload = {
         payment_method: paymentMethod,
         payment_data: paymentData,
         billing_info: billingInfo,
-        timestamp: new Date().toISOString()
+        timestamp: new Date().toISOString(),
+        provider_config: providerConfig ? { ...providerConfig, secretKey: undefined } : null // Remove sensitive data from logs
       };
 
       console.log('Processing payment:', payload);
 
-      // Simulate different payment processors
-      return this.simulatePaymentProcessor(paymentMethod, paymentData);
+      // Use real API or simulation based on configuration
+      if (config.enableSimulation) {
+        return this.simulatePaymentProcessor(paymentMethod, paymentData);
+      } else {
+        return this.processRealPayment(paymentMethod, paymentData, billingInfo, providerConfig);
+      }
     } catch (error) {
       console.error('Payment processing error:', error);
+      return {
+        success: false,
+        error_message: 'Payment processing failed. Please try again.'
+      };
+    }
+  }
+
+  // Process actual payment with real APIs
+  private async processRealPayment(
+    paymentMethod: PaymentMethod,
+    paymentData: PaymentData,
+    billingInfo: BillingInfo,
+    providerConfig: any
+  ): Promise<PaymentResponse> {
+    const endpoints = paymentConfigService.getEndpoints();
+
+    try {
+      const response = await fetch(`${this.baseURL}/process`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          payment_method: paymentMethod,
+          payment_data: paymentData,
+          billing_info: billingInfo,
+          provider_config: providerConfig,
+          success_url: endpoints.success,
+          cancel_url: endpoints.cancel,
+        })
+      });
+
+      if (!response.ok) {
+        throw new Error(`Payment API error: ${response.status}`);
+      }
+
+      return await response.json();
+    } catch (error) {
+      console.error('Real payment processing error:', error);
       return {
         success: false,
         error_message: 'Payment processing failed. Please try again.'
