@@ -90,12 +90,7 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <Navigation />
-      
-      {/* Hero Section */}
-      <Hero />
-
-      {/* Main Content */}
+      {/* Main Content - Hero is now handled by EnterpriseHeader */}
       <div className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
