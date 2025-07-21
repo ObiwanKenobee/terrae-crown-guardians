@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Crown, Menu, X, Shield, Globe, Scroll, Award, Users, MapPin, DollarSign, User, LogOut, Settings, Building2, Headphones, Scale } from "lucide-react";
+import { Crown, Menu, X, Shield, Globe, Scroll, Award, Users, MapPin, DollarSign, User, LogOut, Settings, Building2, Headphones, Scale, BarChart3 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
