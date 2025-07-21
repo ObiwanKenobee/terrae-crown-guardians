@@ -26,8 +26,7 @@ import {
   Sparkles
 } from "lucide-react";
 import { Link } from "react-router-dom";
-import Navigation from "@/components/Navigation";
-import Hero from "@/components/Hero";
+// Removed old navigation and hero - now handled by EnterpriseLayout
 import { useAuth } from "@/contexts/AuthContext";
 import { blockchainService } from "@/services/blockchainService";
 import { gamificationService } from "@/services/gamificationService";
