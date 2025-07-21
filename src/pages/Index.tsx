@@ -91,8 +91,8 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       {/* Main Content - Hero is now handled by EnterpriseHeader */}
-      <div className="py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="py-8 sm:py-12 lg:py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-responsive">
           
           {/* User Dashboard Section (if authenticated) */}
           {isAuthenticated && user && !isLoading && (
