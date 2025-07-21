@@ -16,6 +16,7 @@ import { CorporatePartnership } from "./components/CorporatePartnership";
 import { ImmersiveExperiences } from "./components/ImmersiveExperiences";
 import { WildlifeDiplomacy } from "./components/WildlifeDiplomacy";
 import { StartupDashboard } from "./components/StartupDashboard";
+import { EnterpriseLayout } from "./components/EnterpriseLayout";
 
 const queryClient = new QueryClient();
 
