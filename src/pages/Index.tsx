@@ -96,13 +96,13 @@ const Index = () => {
           
           {/* User Dashboard Section (if authenticated) */}
           {isAuthenticated && user && !isLoading && (
-            <div className="mb-16">
-              <div className="flex items-center justify-between mb-8">
+            <div className="mb-8 sm:mb-12 lg:mb-16">
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-6 sm:mb-8 gap-4">
                 <div>
-                  <h2 className="text-3xl font-bold text-primary mb-2">
+                  <h2 className="text-2xl sm:text-3xl font-bold text-primary mb-2">
                     Welcome back, {user.full_name}! 👋
                   </h2>
-                  <p className="text-muted-foreground">
+                  <p className="text-sm sm:text-base text-muted-foreground">
                     Continue your regenerative journey and make an impact today
                   </p>
                 </div>
