@@ -328,7 +328,8 @@ export function EnterpriseHeader() {
                 variant="ghost"
                 size="sm"
                 onClick={() => setIsOpen(!isOpen)}
-                className="lg:hidden"
+                className="lg:hidden p-2 min-h-[44px] min-w-[44px] flex items-center justify-center"
+                aria-label="Toggle menu"
               >
                 {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
               </Button>
