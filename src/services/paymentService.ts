@@ -1,7 +1,13 @@
 import { PaymentData, BillingInfo, PaymentResponse, PaymentMethod } from '@/types/payment';
+import { paymentConfigService } from './paymentConfigService';
 
 class PaymentService {
-  private baseURL = '/api/payment';
+  private baseURL: string;
+
+  constructor() {
+    const config = paymentConfigService.getGeneralConfig();
+    this.baseURL = `${config.apiBaseUrl}/payment`;
+  }
 
   // Simulate payment processing for different regions
   async processPayment(
