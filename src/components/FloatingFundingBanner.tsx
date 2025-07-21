@@ -44,7 +44,9 @@ const FloatingFundingBanner = ({
   return (
     <div className={`${positionClasses} transition-all duration-300 ease-in-out`}>
       {/* Compact Banner */}
-      <div className="bg-gradient-to-r from-emerald-800 via-green-700 to-amber-800 text-white shadow-2xl">
+      <div className={`bg-gradient-to-r from-emerald-800 via-green-700 to-amber-800 text-white ${
+        floating ? 'shadow-2xl' : 'shadow-lg border-b border-emerald-600'
+      }`}>
         <div className="max-w-7xl mx-auto px-4 py-3">
           <div className="flex items-center justify-between">
             {/* Left Side - Main Message */}
