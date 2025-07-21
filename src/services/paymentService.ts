@@ -120,29 +120,29 @@ class PaymentService {
         return {
           success: true,
           transaction_id: transactionId,
-          redirect_url: '/payment/mpesa-confirmation'
+          redirect_url: `${endpoints.success}?provider=mpesa&tx=${transactionId}`
         };
-      
+
       case 'flutterwave':
       case 'paystack':
         return {
           success: true,
           transaction_id: transactionId,
-          redirect_url: '/payment/bank-redirect'
+          redirect_url: `${endpoints.success}?provider=${paymentMethod.processor}&tx=${transactionId}`
         };
-      
+
       case 'sepa':
         return {
           success: true,
           transaction_id: transactionId,
-          redirect_url: '/payment/sepa-mandate'
+          redirect_url: `${endpoints.success}?provider=sepa&tx=${transactionId}`
         };
-      
+
       case 'bpay':
         return {
           success: true,
           transaction_id: transactionId,
-          redirect_url: '/payment/bpay-reference'
+          redirect_url: `${endpoints.success}?provider=bpay&tx=${transactionId}`
         };
       
       default:
