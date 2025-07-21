@@ -185,18 +185,14 @@ const FundingBannerHeader = ({ onClose, showCloseButton = true }: FundingBannerH
           </div>
 
           {/* Bottom Links */}
-          <div className="mt-6 pt-4 border-t border-emerald-700">
-            <div className="flex flex-wrap justify-center gap-4 text-xs">
+          <div className="mt-4 pt-3 border-t border-emerald-700">
+            <div className="flex flex-wrap justify-center gap-3 text-xs">
               <Link to="/pricing" className="text-amber-200 hover:text-amber-100 underline">
                 Investment Options
               </Link>
               <span className="text-emerald-300">•</span>
               <Link to="/about" className="text-amber-200 hover:text-amber-100 underline">
                 Our Mission
-              </Link>
-              <span className="text-emerald-300">•</span>
-              <Link to="/crown-bioregions" className="text-amber-200 hover:text-amber-100 underline">
-                Explore Bioregions
               </Link>
               <span className="text-emerald-300">•</span>
               <span className="text-emerald-200">aegis.earth</span>
