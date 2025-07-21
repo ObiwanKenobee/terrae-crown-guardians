@@ -129,8 +129,8 @@ export function CorporatePartnership() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-green-50 to-blue-50 p-6">
-      <div className="max-w-7xl mx-auto">
+    <div className="min-h-screen bg-gradient-to-b from-green-50 to-blue-50 p-4 sm:p-6">
+      <div className="max-w-7xl mx-auto space-responsive">
         <div className="mb-8">
           <h1 className="text-4xl font-bold text-gray-900 mb-4">Corporate Partnership Hub</h1>
           <p className="text-lg text-gray-600 mb-6">
