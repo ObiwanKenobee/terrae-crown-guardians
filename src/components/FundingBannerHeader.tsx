@@ -126,42 +126,42 @@ const FundingBannerHeader = ({ onClose, showCloseButton = true }: FundingBannerH
             {/* Right Side - Visual Elements & Stats */}
             <div className="text-center">
               {/* Central Globe Visual */}
-              <div className="flex justify-center items-center mb-6">
+              <div className="flex justify-center items-center mb-4">
                 <div className="relative">
-                  <Globe className="h-16 w-16 text-blue-400" />
-                  
+                  <Globe className="h-12 w-12 text-blue-400" />
+
                   {/* Wildlife Silhouettes */}
-                  <div className="absolute -top-4 -left-4 animate-pulse">
-                    <Bird className="h-5 w-5 text-sky-300" />
+                  <div className="absolute -top-3 -left-3 animate-pulse">
+                    <Bird className="h-4 w-4 text-sky-300" />
                   </div>
-                  <div className="absolute -bottom-3 -right-4 animate-pulse delay-1000">
-                    <Fish className="h-5 w-5 text-cyan-300" />
+                  <div className="absolute -bottom-2 -right-3 animate-pulse delay-1000">
+                    <Fish className="h-4 w-4 text-cyan-300" />
                   </div>
-                  <div className="absolute -top-3 -right-3 animate-pulse delay-500">
-                    <Mountain className="h-5 w-5 text-stone-300" />
+                  <div className="absolute -top-2 -right-2 animate-pulse delay-500">
+                    <Mountain className="h-4 w-4 text-stone-300" />
                   </div>
-                  <div className="absolute -bottom-4 -left-3 animate-pulse delay-1500">
-                    <TreePine className="h-5 w-5 text-green-300" />
+                  <div className="absolute -bottom-3 -left-2 animate-pulse delay-1500">
+                    <TreePine className="h-4 w-4 text-green-300" />
                   </div>
                 </div>
               </div>
 
               {/* Key Stats */}
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-2 gap-3">
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-amber-400 mb-1">15+</div>
+                  <div className="text-lg font-bold text-amber-400 mb-1">15+</div>
                   <div className="text-emerald-200 text-xs">Crown Bioregions</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-blue-400 mb-1">50M+</div>
+                  <div className="text-lg font-bold text-blue-400 mb-1">50M+</div>
                   <div className="text-emerald-200 text-xs">Hectares Protected</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-green-400 mb-1">200+</div>
+                  <div className="text-lg font-bold text-green-400 mb-1">200+</div>
                   <div className="text-emerald-200 text-xs">Indigenous Partners</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-purple-400 mb-1">$50M</div>
+                  <div className="text-lg font-bold text-purple-400 mb-1">$50M</div>
                   <div className="text-emerald-200 text-xs">Target Funding</div>
                 </div>
               </div>
