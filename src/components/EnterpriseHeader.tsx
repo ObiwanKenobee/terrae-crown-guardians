@@ -303,21 +303,22 @@ export function EnterpriseHeader() {
                   </DropdownMenuContent>
                 </DropdownMenu>
               ) : (
-                <div className="flex items-center space-x-2">
-                  <Button 
-                    variant="outline" 
+                <div className="flex items-center space-x-1 sm:space-x-2">
+                  <Button
+                    variant="outline"
                     size="sm"
                     onClick={() => setAuthModalOpen(true)}
-                    className="hidden md:flex"
+                    className="hidden sm:flex text-xs sm:text-sm px-2 sm:px-3"
                   >
                     Sign In
                   </Button>
-                  <Button 
+                  <Button
                     size="sm"
                     onClick={() => setAuthModalOpen(true)}
-                    className="bg-green-600 hover:bg-green-700 text-white"
+                    className="bg-green-600 hover:bg-green-700 text-white text-xs sm:text-sm px-2 sm:px-3"
                   >
-                    Join the Pact
+                    <span className="hidden sm:inline">Join the Pact</span>
+                    <span className="sm:hidden">Join</span>
                   </Button>
                 </div>
               )}
