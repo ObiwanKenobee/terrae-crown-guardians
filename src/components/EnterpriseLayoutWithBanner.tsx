@@ -22,18 +22,18 @@ export const EnterpriseLayoutWithBanner = ({
 
   return (
     <div className="min-h-screen flex flex-col bg-background">
-      {/* Compact Floating Funding Banner */}
+      {/* Funding Banner - Placed above everything */}
       {bannerVisible && (
-        <FloatingFundingBanner
-          onClose={handleCloseBanner}
-          position="top"
-        />
+        <div className="relative w-full">
+          <FloatingFundingBanner
+            onClose={handleCloseBanner}
+            position="top"
+          />
+        </div>
       )}
 
-      {/* Main Header with minimal top padding to account for floating banner */}
-      <div className={bannerVisible ? "pt-16" : ""}>
-        <EnterpriseHeader showHero={showHero} />
-      </div>
+      {/* Main Header - Below the banner */}
+      <EnterpriseHeader showHero={showHero} />
 
       {/* Main Content */}
       <main className="flex-1">
