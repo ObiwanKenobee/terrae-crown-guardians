@@ -17,6 +17,10 @@ import { CorporatePartnership } from "./components/CorporatePartnership";
 import { ImmersiveExperiences } from "./components/ImmersiveExperiences";
 import { WildlifeDiplomacy } from "./components/WildlifeDiplomacy";
 import { StartupDashboard } from "./components/StartupDashboard";
+import FrontendDashboard from "./components/dashboards/FrontendDashboard";
+import BackendDashboard from "./components/dashboards/BackendDashboard";
+import APIDashboard from "./components/dashboards/APIDashboard";
+import DatabaseDashboard from "./components/dashboards/DatabaseDashboard";
 import { EnterpriseLayout } from "./components/EnterpriseLayout";
 
 const queryClient = new QueryClient();
@@ -40,6 +44,10 @@ const App = () => (
           <Route path="/immersive" element={<EnterpriseLayout><ImmersiveExperiences /></EnterpriseLayout>} />
           <Route path="/diplomacy" element={<EnterpriseLayout><WildlifeDiplomacy /></EnterpriseLayout>} />
           <Route path="/dashboard" element={<EnterpriseLayout><StartupDashboard /></EnterpriseLayout>} />
+          <Route path="/dashboard/frontend" element={<EnterpriseLayout><FrontendDashboard /></EnterpriseLayout>} />
+          <Route path="/dashboard/backend" element={<EnterpriseLayout><BackendDashboard /></EnterpriseLayout>} />
+          <Route path="/dashboard/api" element={<EnterpriseLayout><APIDashboard /></EnterpriseLayout>} />
+          <Route path="/dashboard/database" element={<EnterpriseLayout><DatabaseDashboard /></EnterpriseLayout>} />
           <Route path="/about" element={<EnterpriseLayout><About /></EnterpriseLayout>} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<EnterpriseLayout><NotFound /></EnterpriseLayout>} />
