@@ -30,7 +30,7 @@ import {
   LineChart
 } from 'lucide-react';
 
-export function FrontendDashboard() {
+const FrontendDashboard: React.FC = () => {
   const [realTimeData, setRealTimeData] = useState({
     activeUsers: 1247,
     pageViews: 18432,
@@ -602,4 +602,6 @@ export function FrontendDashboard() {
       </Tabs>
     </div>
   );
-}
+};
+
+export default FrontendDashboard;
