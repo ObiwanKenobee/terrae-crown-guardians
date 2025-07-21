@@ -71,16 +71,16 @@ const FundingBannerHeader = ({ onClose, showCloseButton = true }: FundingBannerH
               </div>
 
               {/* Title */}
-              <div className="flex items-center justify-center lg:justify-start mb-4">
-                <div className="relative mr-3">
-                  <Crown className="h-10 w-10 text-amber-400" fill="currentColor" />
-                  <Leaf className="absolute -top-1 -right-1 h-4 w-4 text-emerald-400" />
+              <div className="flex items-center justify-center lg:justify-start mb-3">
+                <div className="relative mr-2">
+                  <Crown className="h-8 w-8 text-amber-400" fill="currentColor" />
+                  <Leaf className="absolute -top-1 -right-1 h-3 w-3 text-emerald-400" />
                 </div>
                 <div>
-                  <h1 className="text-3xl md:text-4xl font-serif font-bold text-white tracking-wide">
+                  <h1 className="text-2xl md:text-3xl font-serif font-bold text-white tracking-wide">
                     AEGIS: Regina Terrae
                   </h1>
-                  <div className="text-lg text-amber-200 tracking-wider">
+                  <div className="text-sm text-amber-200 tracking-wider">
                     Protecting Earth's Crown
                   </div>
                 </div>
