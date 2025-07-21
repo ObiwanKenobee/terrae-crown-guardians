@@ -24,7 +24,8 @@ import {
   Lightbulb,
   TreePine,
   Fish,
-  Mountain
+  Mountain,
+  Building2
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
