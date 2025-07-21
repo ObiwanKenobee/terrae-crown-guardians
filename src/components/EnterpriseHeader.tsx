@@ -500,16 +500,28 @@ export function EnterpriseHeader() {
               </div>
 
               {!isAuthenticated && (
-                <div className="pt-4 border-t">
-                  <Button 
-                    className="w-full bg-green-600 hover:bg-green-700 text-white"
-                    onClick={() => {
-                      setAuthModalOpen(true);
-                      setIsOpen(false);
-                    }}
-                  >
-                    Join the Pact
-                  </Button>
+                <div className="pt-6 border-t border-gray-200">
+                  <div className="space-y-3">
+                    <Button
+                      variant="outline"
+                      className="w-full border-green-200 text-green-700 hover:bg-green-50 min-h-[48px] text-base font-medium"
+                      onClick={() => {
+                        setAuthModalOpen(true);
+                        setIsOpen(false);
+                      }}
+                    >
+                      Sign In
+                    </Button>
+                    <Button
+                      className="w-full bg-green-600 hover:bg-green-700 text-white min-h-[48px] text-base font-medium shadow-lg"
+                      onClick={() => {
+                        setAuthModalOpen(true);
+                        setIsOpen(false);
+                      }}
+                    >
+                      Join the Pact
+                    </Button>
+                  </div>
                 </div>
               )}
             </div>
