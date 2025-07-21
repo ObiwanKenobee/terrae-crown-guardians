@@ -355,28 +355,31 @@ export function EnterpriseHeader() {
 
         {/* Mobile Menu */}
         {isOpen && (
-          <div className="lg:hidden border-t bg-white/95 backdrop-blur-lg">
-            <div className="px-4 pt-2 pb-3 space-y-1">
+          <div className="lg:hidden border-t bg-white/95 backdrop-blur-lg max-h-[80vh] overflow-y-auto">
+            <div className="px-4 pt-4 pb-6 space-y-2">
               {mainNavItems.map((item) => (
-                <div key={item.title} className="space-y-1">
+                <div key={item.title} className="space-y-2">
                   <Link
                     to={item.href}
-                    className="flex items-center px-3 py-2 text-base font-medium text-gray-700 hover:text-green-600 hover:bg-green-50 rounded-md"
+                    className="flex items-center px-4 py-3 text-base font-medium text-gray-700 hover:text-green-600 hover:bg-green-50 rounded-lg transition-colors min-h-[44px]"
                     onClick={() => setIsOpen(false)}
                   >
-                    <item.icon className="h-5 w-5 mr-3" />
-                    {item.title}
+                    <item.icon className="h-5 w-5 mr-3 flex-shrink-0" />
+                    <span className="truncate">{item.title}</span>
                   </Link>
-                  <div className="pl-8 space-y-1">
+                  <div className="pl-6 space-y-1">
                     {item.submenu.map((subItem) => (
                       <Link
                         key={subItem.href}
                         to={subItem.href}
-                        className="flex items-center px-3 py-1 text-sm text-gray-600 hover:text-green-600 hover:bg-green-50 rounded-md"
+                        className="flex items-center px-4 py-2 text-sm text-gray-600 hover:text-green-600 hover:bg-green-50 rounded-lg transition-colors min-h-[40px]"
                         onClick={() => setIsOpen(false)}
                       >
-                        <subItem.icon className="h-4 w-4 mr-2" />
-                        {subItem.title}
+                        <subItem.icon className="h-4 w-4 mr-3 flex-shrink-0" />
+                        <div className="flex-1">
+                          <p className="font-medium">{subItem.title}</p>
+                          <p className="text-xs text-gray-500 hidden sm:block">{subItem.description}</p>
+                        </div>
                       </Link>
                     ))}
                   </div>
