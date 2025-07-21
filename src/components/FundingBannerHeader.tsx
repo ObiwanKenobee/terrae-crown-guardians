@@ -56,9 +56,9 @@ const FundingBannerHeader = ({ onClose, showCloseButton = true }: FundingBannerH
       </div>
 
       {/* Main Content */}
-      <div className="relative z-10 px-6 py-8">
+      <div className="relative z-10 px-6 py-4">
         <div className="max-w-6xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-8 items-center">
+          <div className="grid lg:grid-cols-2 gap-6 items-center">
             
             {/* Left Side - Main Message */}
             <div className="text-center lg:text-left">
