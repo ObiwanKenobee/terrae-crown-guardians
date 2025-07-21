@@ -84,7 +84,11 @@ const FloatingFundingCard = ({ onClose }: FloatingFundingCardProps) => {
   }
 
   return (
-    <div className="fixed top-20 right-4 z-50 w-full max-w-sm sm:max-w-md lg:max-w-lg xl:max-w-xl">
+    <div className="fixed top-4 sm:top-20 right-4 z-50 w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl"
+         style={{
+           maxWidth: 'calc(100vw - 2rem)',
+           width: window.innerWidth < 640 ? 'calc(100vw - 2rem)' : 'auto'
+         }}>
       <Card className="bg-gradient-to-br from-emerald-900 via-green-800 to-amber-900 text-white border-emerald-600 shadow-2xl transform transition-all duration-300 hover:scale-105">
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-10 rounded-lg overflow-hidden">
