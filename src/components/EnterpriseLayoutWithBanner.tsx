@@ -1,7 +1,7 @@
-import { useState, useEffect } from 'react';
 import { EnterpriseHeader } from './EnterpriseHeader';
 import { EnterpriseFooter } from './EnterpriseFooter';
 import FundingBannerHeader from './FundingBannerHeader';
+import { useFundingBanner } from '@/hooks/useFundingBanner';
 
 interface EnterpriseLayoutWithBannerProps {
   children: React.ReactNode;
@@ -9,24 +9,15 @@ interface EnterpriseLayoutWithBannerProps {
   showFundingBanner?: boolean;
 }
 
-export const EnterpriseLayoutWithBanner = ({ 
-  children, 
-  showHero = false, 
-  showFundingBanner = true 
+export const EnterpriseLayoutWithBanner = ({
+  children,
+  showHero = false,
+  showFundingBanner = true
 }: EnterpriseLayoutWithBannerProps) => {
-  const [bannerVisible, setBannerVisible] = useState(showFundingBanner);
-
-  // Check if banner was previously dismissed (localStorage)
-  useEffect(() => {
-    const bannerDismissed = localStorage.getItem('funding-banner-dismissed');
-    if (bannerDismissed === 'true') {
-      setBannerVisible(false);
-    }
-  }, []);
+  const { isVisible: bannerVisible, dismissBanner } = useFundingBanner(showFundingBanner);
 
   const handleCloseBanner = () => {
-    setBannerVisible(false);
-    localStorage.setItem('funding-banner-dismissed', 'true');
+    dismissBanner(true);
   };
 
   return (
