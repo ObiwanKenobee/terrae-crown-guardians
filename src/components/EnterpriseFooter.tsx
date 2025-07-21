@@ -60,7 +60,7 @@ export function EnterpriseFooter() {
 
   const impactStats = [
     { label: 'Land Rehabilitated', value: `${impactData.landRehabilitiated}K hectares`, icon: Mountain, color: 'text-green-600' },
-    { label: 'Trees Planted', value: `${(impactData.treesPlanted / 1000).toFixed(0)}K`, icon: Tree, color: 'text-green-500' },
+    { label: 'Trees Planted', value: `${(impactData.treesPlanted / 1000).toFixed(0)}K`, icon: TreePine, color: 'text-green-500' },
     { label: 'Species Protected', value: impactData.speciesProtected.toString(), icon: Fish, color: 'text-blue-600' },
     { label: 'Youth Initiatives', value: impactData.youthInitiatives.toString(), icon: Users, color: 'text-purple-600' },
     { label: 'Cultural Heritage Sites', value: impactData.culturalWisdomSaved.toString(), icon: Crown, color: 'text-amber-600' }
