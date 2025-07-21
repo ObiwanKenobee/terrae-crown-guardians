@@ -446,30 +446,30 @@ export function EnterpriseHeader() {
 
         {/* Mobile Menu */}
         {isOpen && (
-          <div className="lg:hidden border-t bg-white/95 backdrop-blur-lg max-h-[80vh] overflow-y-auto">
-            <div className="px-4 pt-4 pb-6 space-y-2">
+          <div className="lg:hidden border-t bg-white/98 backdrop-blur-lg max-h-[85vh] overflow-y-auto shadow-lg">
+            <div className="px-4 pt-6 pb-8 space-y-3">
               {mainNavItems.map((item) => (
                 <div key={item.title} className="space-y-2">
                   <Link
                     to={item.href}
-                    className="flex items-center px-4 py-3 text-base font-medium text-gray-700 hover:text-green-600 hover:bg-green-50 rounded-lg transition-colors min-h-[44px]"
+                    className="flex items-center px-4 py-4 text-base font-medium text-gray-700 hover:text-green-600 hover:bg-green-50 rounded-xl transition-all duration-200 min-h-[52px] focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
                     onClick={() => setIsOpen(false)}
                   >
-                    <item.icon className="h-5 w-5 mr-3 flex-shrink-0" />
-                    <span className="truncate">{item.title}</span>
+                    <item.icon className="h-5 w-5 mr-4 flex-shrink-0" />
+                    <span className="truncate font-semibold">{item.title}</span>
                   </Link>
-                  <div className="pl-6 space-y-1">
+                  <div className="pl-4 space-y-1">
                     {item.submenu.map((subItem) => (
                       <Link
                         key={subItem.href}
                         to={subItem.href}
-                        className="flex items-center px-4 py-2 text-sm text-gray-600 hover:text-green-600 hover:bg-green-50 rounded-lg transition-colors min-h-[40px]"
+                        className="flex items-start px-4 py-3 text-sm text-gray-600 hover:text-green-600 hover:bg-green-50 rounded-lg transition-all duration-200 min-h-[48px] focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
                         onClick={() => setIsOpen(false)}
                       >
-                        <subItem.icon className="h-4 w-4 mr-3 flex-shrink-0" />
-                        <div className="flex-1">
-                          <p className="font-medium">{subItem.title}</p>
-                          <p className="text-xs text-gray-500 hidden sm:block">{subItem.description}</p>
+                        <subItem.icon className="h-4 w-4 mr-3 flex-shrink-0 mt-0.5" />
+                        <div className="flex-1 min-w-0">
+                          <p className="font-medium text-gray-900">{subItem.title}</p>
+                          <p className="text-xs text-gray-500 mt-1 line-clamp-2">{subItem.description}</p>
                         </div>
                       </Link>
                     ))}
