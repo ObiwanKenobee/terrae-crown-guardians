@@ -368,19 +368,19 @@ export function EnterpriseHeader() {
                     <DropdownMenuLabel>My Account</DropdownMenuLabel>
                     <DropdownMenuSeparator />
                     <DropdownMenuItem asChild>
-                      <Link to="/dashboard" className="flex items-center">
+                      <Link to="/steward-dashboard" className="flex items-center">
                         <User className="h-4 w-4 mr-2" />
                         Dashboard
                       </Link>
                     </DropdownMenuItem>
                     <DropdownMenuItem asChild>
-                      <Link to="/dashboard#impact" className="flex items-center">
+                      <Link to="/steward-dashboard" className="flex items-center">
                         <BarChart3 className="h-4 w-4 mr-2" />
                         Impact Metrics
                       </Link>
                     </DropdownMenuItem>
                     <DropdownMenuItem asChild>
-                      <Link to="/dashboard#settings" className="flex items-center">
+                      <Link to="/steward-dashboard" className="flex items-center">
                         <Settings className="h-4 w-4 mr-2" />
                         Settings
                       </Link>
