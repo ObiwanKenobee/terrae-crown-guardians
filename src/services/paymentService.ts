@@ -99,8 +99,11 @@ class PaymentService {
     paymentMethod: PaymentMethod,
     paymentData: PaymentData
   ): PaymentResponse {
-    // Simulate 95% success rate
-    const isSuccess = Math.random() > 0.05;
+    const config = paymentConfigService.getGeneralConfig();
+    const endpoints = paymentConfigService.getEndpoints();
+
+    // Use configurable success rate
+    const isSuccess = Math.random() < config.simulationSuccessRate;
 
     if (!isSuccess) {
       return {
