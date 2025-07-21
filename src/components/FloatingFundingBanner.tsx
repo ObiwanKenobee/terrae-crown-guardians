@@ -47,7 +47,7 @@ const FloatingFundingBanner = ({
       <div className={`bg-gradient-to-r from-emerald-800 via-green-700 to-amber-800 text-white ${
         floating ? 'shadow-2xl' : 'shadow-lg border-b border-emerald-600'
       }`}>
-        <div className="max-w-7xl mx-auto px-4 py-3">
+        <div className={`max-w-7xl mx-auto px-4 ${floating ? 'py-3' : 'py-4'}`}>
           <div className="flex items-center justify-between">
             {/* Left Side - Main Message */}
             <div className="flex items-center gap-4">
