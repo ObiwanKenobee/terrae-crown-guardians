@@ -531,59 +531,66 @@ export function EnterpriseHeader() {
 
       {/* Sticky Navigation Bar */}
       {isScrolled && (
-        <div className="fixed top-16 sm:top-20 left-0 right-0 z-40 bg-green-50/90 backdrop-blur-lg border-b border-green-100">
+        <div className="fixed top-16 sm:top-20 left-0 right-0 z-40 bg-green-50/95 backdrop-blur-lg border-b border-green-100 shadow-sm">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex items-center justify-between py-2">
+            <div className="flex items-center justify-between py-3 sm:py-2">
               <div className="hidden lg:flex items-center space-x-6 text-sm">
-                <Link to="/dashboard" className="flex items-center space-x-1 text-green-700 hover:text-green-900">
+                <Link to="/dashboard" className="flex items-center space-x-1 text-green-700 hover:text-green-900 transition-colors">
                   <User className="h-4 w-4" />
                   <span>Dashboard</span>
                 </Link>
-                <Link to="/news" className="flex items-center space-x-1 text-green-700 hover:text-green-900">
+                <Link to="/news" className="flex items-center space-x-1 text-green-700 hover:text-green-900 transition-colors">
                   <Bell className="h-4 w-4" />
                   <span>News & Events</span>
                 </Link>
                 <div className="flex items-center space-x-1 text-green-700">
                   <Earth className="h-4 w-4" />
-                  <span>132K tons CO₂ offset</span>
+                  <span className="font-medium">132K tons CO₂ offset</span>
                 </div>
                 <div className="flex items-center space-x-1 text-green-700">
                   <Leaf className="h-4 w-4" />
-                  <span>2.4K hectares restored</span>
+                  <span className="font-medium">2.4K hectares restored</span>
                 </div>
               </div>
 
               {/* Compact metrics for tablet */}
-              <div className="hidden md:flex lg:hidden items-center space-x-4 text-xs">
+              <div className="hidden md:flex lg:hidden items-center space-x-4 text-sm">
                 <div className="flex items-center space-x-1 text-green-700">
                   <Earth className="h-3 w-3" />
-                  <span>132K CO₂</span>
+                  <span className="font-medium">132K CO₂</span>
                 </div>
                 <div className="flex items-center space-x-1 text-green-700">
                   <Leaf className="h-3 w-3" />
-                  <span>2.4K hectares</span>
+                  <span className="font-medium">2.4K hectares</span>
                 </div>
               </div>
 
               {/* Mobile metrics */}
-              <div className="md:hidden flex items-center space-x-2 text-xs">
+              <div className="md:hidden flex items-center space-x-3 text-sm">
                 <div className="flex items-center text-green-700">
                   <Earth className="h-3 w-3 mr-1" />
-                  <span>132K</span>
+                  <span className="font-medium">132K</span>
                 </div>
                 <div className="flex items-center text-green-700">
                   <Leaf className="h-3 w-3 mr-1" />
-                  <span>2.4K</span>
+                  <span className="font-medium">2.4K</span>
                 </div>
               </div>
 
-              <div className="flex items-center space-x-1 sm:space-x-2">
-                <Button size="sm" variant="outline" className="text-green-700 border-green-300 text-xs sm:text-sm px-2 sm:px-3">
-                  <Globe className="h-3 w-3 sm:h-4 sm:w-4 mr-1" />
+              <div className="flex items-center space-x-2 sm:space-x-3">
+                <Button
+                  size="sm"
+                  variant="outline"
+                  className="text-green-700 border-green-300 hover:bg-green-100 text-xs sm:text-sm px-3 sm:px-4 min-h-[36px] sm:min-h-[40px]"
+                >
+                  <Globe className="h-3 w-3 sm:h-4 sm:w-4 mr-1 sm:mr-2" />
                   <span className="hidden sm:inline">Explore Map</span>
                   <span className="sm:hidden">Map</span>
                 </Button>
-                <Button size="sm" className="bg-green-600 hover:bg-green-700 text-white text-xs sm:text-sm px-2 sm:px-3">
+                <Button
+                  size="sm"
+                  className="bg-green-600 hover:bg-green-700 text-white text-xs sm:text-sm px-3 sm:px-4 min-h-[36px] sm:min-h-[40px] shadow-md"
+                >
                   <span className="hidden sm:inline">Donate Now</span>
                   <span className="sm:hidden">Donate</span>
                 </Button>
