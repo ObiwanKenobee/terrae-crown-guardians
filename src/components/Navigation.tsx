@@ -29,7 +29,7 @@ const Navigation = () => {
     { name: "Partnerships", href: "/partnerships", icon: Building2 },
     { name: "Immersive", href: "/immersive", icon: Headphones },
     { name: "Diplomacy AI", href: "/diplomacy", icon: Scale },
-    { name: "Dashboard", href: "/dashboard", icon: BarChart3 }
+    { name: "Dashboard", href: "/steward-dashboard", icon: BarChart3 }
   ];
 
   const handleAuthSuccess = () => {
