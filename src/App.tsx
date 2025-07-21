@@ -58,6 +58,7 @@ const App = () => (
           <Route path="/dashboard/backend" element={<EnterpriseLayout><BackendDashboard /></EnterpriseLayout>} />
           <Route path="/dashboard/api" element={<EnterpriseLayout><APIDashboard /></EnterpriseLayout>} />
           <Route path="/dashboard/database" element={<EnterpriseLayout><DatabaseDashboard /></EnterpriseLayout>} />
+          <Route path="/steward-dashboard" element={<EnterpriseLayout><Dashboard /></EnterpriseLayout>} />
           <Route path="/about" element={<EnterpriseLayout><About /></EnterpriseLayout>} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<EnterpriseLayout><NotFound /></EnterpriseLayout>} />
