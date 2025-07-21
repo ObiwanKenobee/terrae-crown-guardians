@@ -289,10 +289,10 @@ const Index = () => {
           )}
 
           {/* Global Impact Metrics */}
-          <div className="mb-16">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-primary mb-4">Global Regenerative Impact</h2>
-              <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <div className="mb-8 sm:mb-12 lg:mb-16">
+            <div className="text-center mb-8 sm:mb-12 space-responsive-sm">
+              <h2 className="text-2xl sm:text-3xl font-bold text-primary mb-4 text-responsive-2xl">Global Regenerative Impact</h2>
+              <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto text-responsive-lg">
                 Real-time transparency powered by blockchain technology. Every action is verified and tracked.
               </p>
             </div>
