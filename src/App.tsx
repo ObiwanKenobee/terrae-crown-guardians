@@ -60,6 +60,7 @@ const App = () => (
           <Route path="/dashboard/backend" element={<EnterpriseLayout><BackendDashboard /></EnterpriseLayout>} />
           <Route path="/dashboard/api" element={<EnterpriseLayout><APIDashboard /></EnterpriseLayout>} />
           <Route path="/dashboard/database" element={<EnterpriseLayout><DatabaseDashboard /></EnterpriseLayout>} />
+          <Route path="/dashboard-selector" element={<EnterpriseLayout><DashboardSelector /></EnterpriseLayout>} />
           <Route path="/steward-dashboard" element={<EnterpriseLayout><Dashboard /></EnterpriseLayout>} />
           <Route path="/indigenous-guardian-dashboard" element={<EnterpriseLayout><IndigenousGuardianDashboard /></EnterpriseLayout>} />
           <Route path="/about" element={<EnterpriseLayout><About /></EnterpriseLayout>} />
