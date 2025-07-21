@@ -67,12 +67,14 @@ const Navigation = () => {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+        <div className="flex justify-between items-center h-16 sm:h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2">
-            <Crown className="w-8 h-8 text-gold" />
-            <span className="font-serif text-xl font-bold text-primary">AEGIS</span>
-            <span className="text-muted-foreground text-sm">Regina Terrae</span>
+          <Link to="/" className="flex items-center space-x-2 sm:space-x-3 group">
+            <Crown className="w-6 h-6 sm:w-8 sm:h-8 text-gold group-hover:scale-105 transition-transform" />
+            <div className="flex flex-col sm:flex-row sm:items-center sm:space-x-2">
+              <span className="font-serif text-lg sm:text-xl font-bold text-primary">AEGIS</span>
+              <span className="text-muted-foreground text-xs sm:text-sm hidden sm:block">Regina Terrae</span>
+            </div>
           </Link>
 
           {/* Desktop Navigation */}
