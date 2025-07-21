@@ -357,15 +357,15 @@ const Index = () => {
           </div>
 
           {/* Innovation Showcase */}
-          <div className="mb-16">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-primary mb-4">Revolutionary Features</h2>
-              <p className="text-xl text-muted-foreground">
+          <div className="mb-8 sm:mb-12 lg:mb-16">
+            <div className="text-center mb-8 sm:mb-12 space-responsive-sm">
+              <h2 className="text-2xl sm:text-3xl font-bold text-primary mb-4 text-responsive-2xl">Revolutionary Features</h2>
+              <p className="text-lg sm:text-xl text-muted-foreground text-responsive-lg">
                 Experience the future of environmental conservation with cutting-edge technology
               </p>
             </div>
 
-            <div className="grid lg:grid-cols-3 gap-8">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 grid-responsive">
               {/* Blockchain Transparency */}
               <Card className="hover:shadow-xl transition-shadow">
                 <CardHeader>
