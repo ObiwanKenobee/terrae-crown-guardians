@@ -35,7 +35,7 @@ import {
   HardDrive
 } from 'lucide-react';
 
-export function APIDashboard() {
+const APIDashboard: React.FC = () => {
   const [selectedTimeframe, setSelectedTimeframe] = useState('24h');
   
   const apiMetrics = {
@@ -914,4 +914,6 @@ X-RateLimit-Remaining: 999`}
       </Tabs>
     </div>
   );
-}
+};
+
+export default APIDashboard;
