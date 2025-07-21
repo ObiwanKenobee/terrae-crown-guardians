@@ -3,9 +3,12 @@ import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Plus, MapPin, AlertCircle, Eye, Edit, Trash2 } from "lucide-react";
+import { Plus, MapPin, AlertCircle, Eye, Edit, Trash2, Filter, Search } from "lucide-react";
+import { Input } from "@/components/ui/input";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
 import Navigation from "@/components/Navigation";
+import InteractiveBioregionMap from "@/components/InteractiveBioregionMap";
 
 interface BiodiversityReport {
   id: string;
@@ -22,6 +25,9 @@ interface BiodiversityReport {
 const CrownBioregions = () => {
   const [reports, setReports] = useState<BiodiversityReport[]>([]);
   const [loading, setLoading] = useState(true);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [filterRisk, setFilterRisk] = useState("all");
+  const [filterType, setFilterType] = useState("all");
   const { toast } = useToast();
 
   useEffect(() => {
@@ -111,8 +117,57 @@ const CrownBioregions = () => {
             </Button>
           </div>
 
+          {/* Interactive Map Section */}
+          <div className="mb-12">
+            <InteractiveBioregionMap />
+          </div>
+
+          {/* Filters and Search */}
+          <div className="flex flex-col md:flex-row gap-4 mb-6">
+            <div className="flex-1 relative">
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+              <Input
+                placeholder="Search bioregions..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="pl-10"
+              />
+            </div>
+            <Select value={filterRisk} onValueChange={setFilterRisk}>
+              <SelectTrigger className="w-48">
+                <SelectValue placeholder="Filter by risk level" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="all">All Risk Levels</SelectItem>
+                <SelectItem value="critical">Critical</SelectItem>
+                <SelectItem value="high">High</SelectItem>
+                <SelectItem value="medium">Medium</SelectItem>
+                <SelectItem value="low">Low</SelectItem>
+              </SelectContent>
+            </Select>
+            <Select value={filterType} onValueChange={setFilterType}>
+              <SelectTrigger className="w-48">
+                <SelectValue placeholder="Filter by type" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="all">All Types</SelectItem>
+                <SelectItem value="forest">Forest</SelectItem>
+                <SelectItem value="marine">Marine</SelectItem>
+                <SelectItem value="wetland">Wetland</SelectItem>
+                <SelectItem value="grassland">Grassland</SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
+
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {reports.map((report) => (
+            {reports
+              .filter(report => {
+                const matchesSearch = report.title.toLowerCase().includes(searchTerm.toLowerCase());
+                const matchesRisk = filterRisk === "all" || report.risk_level === filterRisk;
+                const matchesType = filterType === "all" || report.report_type === filterType;
+                return matchesSearch && matchesRisk && matchesType;
+              })
+              .map((report) => (
               <Card key={report.id} className="hover:shadow-lg transition-shadow">
                 <CardHeader className="pb-3">
                   <div className="flex items-start justify-between">
@@ -151,9 +206,13 @@ const CrownBioregions = () => {
                       <Eye className="mr-2 h-4 w-4" />
                       View
                     </Button>
-                    <Button variant="outline" size="sm" className="flex-1">
-                      <Edit className="mr-2 h-4 w-4" />
-                      Edit
+                    <Button 
+                      variant="outline" 
+                      size="sm" 
+                      className="flex-1 bg-gradient-royal text-primary-foreground hover:opacity-90"
+                      onClick={() => window.location.href = '/join-pact'}
+                    >
+                      Protect
                     </Button>
                     <Button 
                       variant="outline" 

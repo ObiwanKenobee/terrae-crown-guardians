@@ -3,9 +3,11 @@ import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Plus, Users, AlertTriangle, Calendar, Eye, Edit, Trash2 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import Navigation from "@/components/Navigation";
+import PactApplicationForm from "@/components/PactApplicationForm";
 
 interface Case {
   id: string;
@@ -113,15 +115,34 @@ const JoinPact = () => {
           <div className="flex justify-between items-center mb-8">
             <div>
               <h1 className="text-4xl font-bold text-primary mb-2">Join the Pact</h1>
-              <p className="text-muted-foreground">Report and track conservation cases</p>
+              <p className="text-muted-foreground">Become an AEGIS Steward and protect Earth's crown bioregions</p>
             </div>
-            <Button className="bg-gradient-royal text-primary-foreground hover:opacity-90">
-              <Plus className="mr-2 h-4 w-4" />
-              Report Case
-            </Button>
           </div>
 
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <Tabs defaultValue="application" className="w-full">
+            <TabsList className="grid w-full grid-cols-2 mb-8">
+              <TabsTrigger value="application">Join as Steward</TabsTrigger>
+              <TabsTrigger value="cases">Conservation Cases</TabsTrigger>
+            </TabsList>
+
+            <TabsContent value="application">
+              <PactApplicationForm />
+            </TabsContent>
+
+            <TabsContent value="cases">
+              <div className="space-y-6">
+                <div className="flex justify-between items-center">
+                  <div>
+                    <h2 className="text-2xl font-bold text-primary mb-2">Conservation Cases</h2>
+                    <p className="text-muted-foreground">Report and track conservation cases</p>
+                  </div>
+                  <Button className="bg-gradient-royal text-primary-foreground hover:opacity-90">
+                    <Plus className="mr-2 h-4 w-4" />
+                    Report Case
+                  </Button>
+                </div>
+
+                <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {cases.map((case_item) => (
               <Card key={case_item.id} className="hover:shadow-lg transition-shadow">
                 <CardHeader className="pb-3">
@@ -195,20 +216,23 @@ const JoinPact = () => {
                   </div>
                 </CardContent>
               </Card>
-            ))}
-          </div>
+                  ))}
+                </div>
 
-          {cases.length === 0 && (
-            <div className="text-center py-12">
-              <Users className="mx-auto h-12 w-12 text-muted-foreground mb-4" />
-              <h3 className="text-lg font-medium text-foreground mb-2">No cases reported</h3>
-              <p className="text-muted-foreground mb-4">Start protecting by reporting your first case</p>
-              <Button className="bg-gradient-royal text-primary-foreground hover:opacity-90">
-                <Plus className="mr-2 h-4 w-4" />
-                Report First Case
-              </Button>
-            </div>
-          )}
+                {cases.length === 0 && (
+                  <div className="text-center py-12">
+                    <Users className="mx-auto h-12 w-12 text-muted-foreground mb-4" />
+                    <h3 className="text-lg font-medium text-foreground mb-2">No cases reported</h3>
+                    <p className="text-muted-foreground mb-4">Start protecting by reporting your first case</p>
+                    <Button className="bg-gradient-royal text-primary-foreground hover:opacity-90">
+                      <Plus className="mr-2 h-4 w-4" />
+                      Report First Case
+                    </Button>
+                  </div>
+                )}
+              </div>
+            </TabsContent>
+          </Tabs>
         </div>
       </div>
     </div>
