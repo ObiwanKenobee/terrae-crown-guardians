@@ -16,9 +16,13 @@ import {
   Star,
   Gift,
   ArrowRight,
-  Zap
+  Zap,
+  CreditCard
 } from "lucide-react";
 import Navigation from "@/components/Navigation";
+import PaymentModal from "@/components/PaymentModal";
+import DonationModal from "@/components/DonationModal";
+import { useToast } from "@/hooks/use-toast";
 
 interface PricingTier {
   id: string;
@@ -254,6 +258,11 @@ const pricingTiers: PricingTier[] = [
 const Pricing = () => {
   const [activeTab, setActiveTab] = useState<'individual' | 'community' | 'corporate' | 'government'>('individual');
   const [isAnnual, setIsAnnual] = useState(false);
+  const [paymentModalOpen, setPaymentModalOpen] = useState(false);
+  const [donationModalOpen, setDonationModalOpen] = useState(false);
+  const [selectedTier, setSelectedTier] = useState<PricingTier | null>(null);
+
+  const { toast } = useToast();
 
   const filteredTiers = pricingTiers.filter(tier => tier.category === activeTab);
 
@@ -276,6 +285,39 @@ const Pricing = () => {
     }
   };
 
+  const handleSubscribe = (tier: PricingTier) => {
+    if (tier.price === '$0' || tier.price === 'Free') {
+      toast({
+        title: "Free Access Granted!",
+        description: `Welcome to ${tier.name}. You can now access all free features.`
+      });
+      return;
+    }
+
+    setSelectedTier(tier);
+    setPaymentModalOpen(true);
+  };
+
+  const handleDonate = () => {
+    setDonationModalOpen(true);
+  };
+
+  const handlePaymentSuccess = (transactionId: string) => {
+    setPaymentModalOpen(false);
+    toast({
+      title: "Subscription Activated!",
+      description: `Your ${selectedTier?.name} subscription is now active. Transaction ID: ${transactionId.substring(0, 10)}...`
+    });
+  };
+
+  const handleDonationSuccess = (transactionId: string, amount: number, project: string) => {
+    setDonationModalOpen(false);
+    toast({
+      title: "Donation Successful!",
+      description: `Thank you for your $${amount} donation to ${project}!`
+    });
+  };
+
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
@@ -287,10 +329,26 @@ const Pricing = () => {
             <h1 className="text-4xl md:text-5xl font-bold text-primary mb-4">
               Regenerative Pricing for Earth's Guardians
             </h1>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
               Choose your path as a Steward. Our intelligent pricing strategy ensures accessibility 
               while funding the regeneration of Earth's crown bioregions.
             </p>
+            
+            {/* Quick Action Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+              <Button 
+                size="lg" 
+                onClick={handleDonate}
+                className="bg-gradient-to-r from-red-500 to-pink-500 text-white hover:opacity-90"
+              >
+                <Heart className="mr-2 h-5 w-5" />
+                Make a Donation
+              </Button>
+              <Button size="lg" variant="outline">
+                <CreditCard className="mr-2 h-5 w-5" />
+                Compare Payment Methods
+              </Button>
+            </div>
           </div>
 
           {/* Billing Toggle */}
@@ -397,6 +455,7 @@ const Pricing = () => {
                           : ''
                       }`}
                       variant={tier.highlighted ? 'default' : 'outline'}
+                      onClick={() => handleSubscribe(tier)}
                     >
                       {tier.price === 'Free' || tier.price === '$0' 
                         ? 'Get Started Free' 
@@ -409,6 +468,35 @@ const Pricing = () => {
               ))}
             </div>
           </Tabs>
+
+          {/* Payment Methods Section */}
+          <div className="bg-gradient-to-r from-primary/10 to-primary/5 border border-primary/20 rounded-2xl p-8 mb-12">
+            <div className="text-center mb-8">
+              <h3 className="text-2xl font-bold text-primary mb-4">Global Payment Methods</h3>
+              <p className="text-muted-foreground">
+                We support payment systems from Africa, Europe, Americas, and Australia
+              </p>
+            </div>
+            
+            <div className="grid md:grid-cols-4 gap-6 text-center">
+              <div>
+                <h4 className="font-semibold mb-2">🌍 Africa</h4>
+                <p className="text-sm text-muted-foreground">M-Pesa, Flutterwave, Paystack</p>
+              </div>
+              <div>
+                <h4 className="font-semibold mb-2">🇪🇺 Europe</h4>
+                <p className="text-sm text-muted-foreground">SEPA, iDEAL, Klarna</p>
+              </div>
+              <div>
+                <h4 className="font-semibold mb-2">🌎 Americas</h4>
+                <p className="text-sm text-muted-foreground">ACH, Apple Pay, Google Pay</p>
+              </div>
+              <div>
+                <h4 className="font-semibold mb-2">🇦🇺 Australia</h4>
+                <p className="text-sm text-muted-foreground">BPAY, POLi, Afterpay</p>
+              </div>
+            </div>
+          </div>
 
           {/* Incentives Section */}
           <div className="bg-gradient-to-r from-primary/10 to-primary/5 border border-primary/20 rounded-2xl p-8 mb-12">
@@ -462,9 +550,13 @@ const Pricing = () => {
               Every contribution, no matter the size, helps protect our planet's most sacred ecological zones.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-gradient-royal text-primary-foreground hover:opacity-90">
-                Start Your Journey
-                <ArrowRight className="ml-2 h-4 w-4" />
+              <Button 
+                size="lg" 
+                onClick={handleDonate}
+                className="bg-gradient-to-r from-red-500 to-pink-500 text-white hover:opacity-90"
+              >
+                <Heart className="mr-2 h-5 w-5" />
+                Make a Donation
               </Button>
               <Button size="lg" variant="outline">
                 Learn More About AEGIS
@@ -473,6 +565,23 @@ const Pricing = () => {
           </div>
         </div>
       </div>
+
+      {/* Payment Modal */}
+      {selectedTier && (
+        <PaymentModal
+          isOpen={paymentModalOpen}
+          onClose={() => setPaymentModalOpen(false)}
+          tierData={selectedTier}
+          onPaymentSuccess={handlePaymentSuccess}
+        />
+      )}
+
+      {/* Donation Modal */}
+      <DonationModal
+        isOpen={donationModalOpen}
+        onClose={() => setDonationModalOpen(false)}
+        onDonationSuccess={handleDonationSuccess}
+      />
     </div>
   );
 };
