@@ -87,8 +87,8 @@ const FundingBannerHeader = ({ onClose, showCloseButton = true }: FundingBannerH
               </div>
 
               {/* Subtitle */}
-              <p className="text-sm md:text-base text-emerald-100 mb-6 leading-relaxed">
-                Join the global movement to protect Earth's most vital bioregions through 
+              <p className="text-xs md:text-sm text-emerald-100 mb-4 leading-relaxed">
+                Join the global movement to protect Earth's most vital bioregions through
                 cutting-edge technology and Indigenous wisdom.
               </p>
 
