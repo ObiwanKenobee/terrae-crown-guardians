@@ -7,10 +7,8 @@ import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Separator } from "@/components/ui/separator";
 import { Badge } from "@/components/ui/badge";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { 
   CreditCard, 
-  Globe, 
   Shield, 
   CheckCircle, 
   AlertCircle, 
@@ -206,6 +204,13 @@ const PaymentModal = ({ isOpen, onClose, tierData, onPaymentSuccess }: PaymentMo
     return names[region] || 'Global';
   };
 
+  const regionTabs = [
+    { value: 'africa', label: 'Africa' },
+    { value: 'europe', label: 'Europe' },
+    { value: 'america', label: 'Americas' },
+    { value: 'australia', label: 'Oceania' }
+  ];
+
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
@@ -250,47 +255,52 @@ const PaymentModal = ({ isOpen, onClose, tierData, onPaymentSuccess }: PaymentMo
               </p>
             </div>
 
-            <Tabs value={userRegion} onValueChange={setUserRegion}>
-              <TabsList className="grid w-full grid-cols-4">
-                <TabsTrigger value="africa">Africa</TabsTrigger>
-                <TabsTrigger value="europe">Europe</TabsTrigger>
-                <TabsTrigger value="america">Americas</TabsTrigger>
-                <TabsTrigger value="australia">Oceania</TabsTrigger>
-              </TabsList>
+            {/* Region Selection */}
+            <div className="flex justify-center gap-2 mb-4">
+              {regionTabs.map((tab) => (
+                <Button
+                  key={tab.value}
+                  variant={userRegion === tab.value ? "default" : "outline"}
+                  size="sm"
+                  onClick={() => setUserRegion(tab.value)}
+                >
+                  {tab.label}
+                </Button>
+              ))}
+            </div>
 
-              <div className="mt-4 grid gap-3">
-                {getAvailablePaymentMethods().map((method) => (
-                  <Card 
-                    key={method.id}
-                    className={`cursor-pointer transition-all hover:shadow-md ${
-                      selectedPaymentMethod?.id === method.id 
-                        ? 'border-primary bg-primary/5' 
-                        : ''
-                    }`}
-                    onClick={() => handlePaymentMethodSelect(method)}
-                  >
-                    <CardContent className="p-4">
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-center gap-3">
-                          <div className="w-10 h-10 bg-muted rounded-lg flex items-center justify-center">
-                            <CreditCard className="h-5 w-5" />
-                          </div>
-                          <div>
-                            <div className="font-medium">{method.name}</div>
-                            <div className="text-sm text-muted-foreground">
-                              {method.supported_currencies.slice(0, 3).join(', ')}
-                              {method.supported_currencies.length > 3 && '...'}
-                            </div>
+            <div className="grid gap-3">
+              {getAvailablePaymentMethods().map((method) => (
+                <Card 
+                  key={method.id}
+                  className={`cursor-pointer transition-all hover:shadow-md ${
+                    selectedPaymentMethod?.id === method.id 
+                      ? 'border-primary bg-primary/5' 
+                      : ''
+                  }`}
+                  onClick={() => handlePaymentMethodSelect(method)}
+                >
+                  <CardContent className="p-4">
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-3">
+                        <div className="w-10 h-10 bg-muted rounded-lg flex items-center justify-center">
+                          <CreditCard className="h-5 w-5" />
+                        </div>
+                        <div>
+                          <div className="font-medium">{method.name}</div>
+                          <div className="text-sm text-muted-foreground">
+                            {method.supported_currencies.slice(0, 3).join(', ')}
+                            {method.supported_currencies.length > 3 && '...'}
                           </div>
                         </div>
-                        <Badge variant="outline" className="text-xs">
-                          {getRegionDisplayName(method.region)}
-                        </Badge>
                       </div>
-                    </CardContent>
-                  </Card>
-                ))}
-              </div>
+                      <Badge variant="outline" className="text-xs">
+                        {getRegionDisplayName(method.region)}
+                      </Badge>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
             </div>
           </div>
         )}
