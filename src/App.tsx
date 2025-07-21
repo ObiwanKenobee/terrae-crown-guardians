@@ -16,6 +16,7 @@ import Pricing from "./pages/Pricing";
 import About from "./pages/About";
 import Dashboard from "./pages/Dashboard";
 import IndigenousGuardianDashboard from "./pages/IndigenousGuardianDashboard";
+import ResearcherDashboard from "./pages/ResearcherDashboard";
 import DashboardSelector from "./components/DashboardSelector";
 import { CorporatePartnership } from "./components/CorporatePartnership";
 import { ImmersiveExperiences } from "./components/ImmersiveExperiences";
