@@ -49,7 +49,8 @@ const FloatingFundingCard = ({ onClose }: FloatingFundingCardProps) => {
 
   if (isMinimized) {
     return (
-      <div className="fixed bottom-4 right-4 z-50 max-w-xs">
+      <div className="fixed bottom-4 right-4 z-50 w-full max-w-xs sm:max-w-sm"
+           style={{ maxWidth: 'calc(100vw - 2rem)' }}>
         <Card className="bg-gradient-to-br from-emerald-900 via-green-800 to-amber-900 text-white border-emerald-600 shadow-2xl">
           <CardContent className="p-4">
             <div className="flex items-center justify-between">
