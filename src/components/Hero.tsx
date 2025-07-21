@@ -38,6 +38,7 @@ const Hero = () => {
           <Button 
             size="lg" 
             className="bg-gold hover:bg-gold/90 text-gold-foreground font-semibold px-8 py-6 text-lg shadow-royal"
+            onClick={() => window.location.href = '/crown-bioregions'}
           >
             <Shield className="mr-2 h-5 w-5" />
             Protect Earth's Crown
@@ -47,6 +48,7 @@ const Hero = () => {
             variant="outline" 
             size="lg"
             className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 font-semibold px-8 py-6 text-lg"
+            onClick={() => window.location.href = '/crown-bioregions'}
           >
             <Globe className="mr-2 h-5 w-5" />
             Explore Bioregions

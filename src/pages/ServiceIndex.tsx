@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { Plus, Award, TrendingUp, Users, Eye, Edit, Trash2 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import Navigation from "@/components/Navigation";
+import ServiceRankings from "@/components/ServiceRankings";
 
 interface Innovation {
   id: string;
@@ -113,7 +114,15 @@ const ServiceIndex = () => {
             </Button>
           </div>
 
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {/* Service Rankings Section */}
+          <div className="mb-12">
+            <ServiceRankings />
+          </div>
+
+          <div className="border-t pt-12">
+            <h2 className="text-2xl font-bold text-primary mb-6">Emergent Innovations</h2>
+
+            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {innovations.map((innovation) => (
               <Card key={innovation.id} className="hover:shadow-lg transition-shadow">
                 <CardHeader className="pb-3">
@@ -196,6 +205,7 @@ const ServiceIndex = () => {
               </Button>
             </div>
           )}
+          </div>
         </div>
       </div>
     </div>
