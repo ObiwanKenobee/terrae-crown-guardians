@@ -236,7 +236,7 @@ export interface ContentCreationTool {
   };
 }
 
-export interface VirtualField Trip {
+export interface VirtualFieldTrip {
   id: string;
   title: string;
   destination: {
