@@ -1,6 +1,6 @@
 import { EnterpriseHeader } from './EnterpriseHeader';
 import { EnterpriseFooter } from './EnterpriseFooter';
-import FundingBannerHeader from './FundingBannerHeader';
+import FloatingFundingBanner from './FloatingFundingBanner';
 import { useFundingBanner } from '@/hooks/useFundingBanner';
 
 interface EnterpriseLayoutWithBannerProps {
