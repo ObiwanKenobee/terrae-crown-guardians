@@ -47,7 +47,7 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<EnterpriseLayout showHero={true}><Index /></EnterpriseLayout>} />
+          <Route path="/" element={<EnterpriseLayoutWithBanner showHero={true} showFundingBanner={true}><Index /></EnterpriseLayoutWithBanner>} />
           <Route path="/crown-bioregions" element={<EnterpriseLayout><CrownBioregions /></EnterpriseLayout>} />
           <Route path="/kenya-accord" element={<EnterpriseLayout><KenyaAccord /></EnterpriseLayout>} />
           <Route path="/royal-legacy" element={<EnterpriseLayout><RoyalLegacy /></EnterpriseLayout>} />
