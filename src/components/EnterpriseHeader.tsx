@@ -38,6 +38,7 @@ import { Badge } from './ui/badge';
 import { Input } from './ui/input';
 import { useAuth } from '../contexts/AuthContext';
 import AuthModal from './AuthModal';
+import SmartDashboardLink from './SmartDashboardLink';
 
 export function EnterpriseHeader() {
   const [isOpen, setIsOpen] = useState(false);
@@ -114,7 +115,7 @@ export function EnterpriseHeader() {
       href: "/service-index",
       submenu: [
         { title: "Global Leaderboard", href: "/service-index", icon: BarChart3, description: "Impact rankings" },
-        { title: "User Dashboard", href: "/dashboard", icon: User, description: "Personal metrics" },
+        { title: "Personal Dashboard", href: "/dashboard-selector", icon: User, description: "Your personalized dashboard" },
         { title: "Frontend Dashboard", href: "/dashboard/frontend", icon: Monitor, description: "UI/UX monitoring" },
         { title: "Backend Dashboard", href: "/dashboard/backend", icon: Server, description: "System performance" },
         { title: "API Dashboard", href: "/dashboard/api", icon: Code, description: "API analytics" },
@@ -368,22 +369,22 @@ export function EnterpriseHeader() {
                     <DropdownMenuLabel>My Account</DropdownMenuLabel>
                     <DropdownMenuSeparator />
                     <DropdownMenuItem asChild>
-                      <Link to="/dashboard" className="flex items-center">
+                      <SmartDashboardLink className="flex items-center">
                         <User className="h-4 w-4 mr-2" />
                         Dashboard
-                      </Link>
+                      </SmartDashboardLink>
                     </DropdownMenuItem>
                     <DropdownMenuItem asChild>
-                      <Link to="/dashboard#impact" className="flex items-center">
+                      <SmartDashboardLink className="flex items-center">
                         <BarChart3 className="h-4 w-4 mr-2" />
                         Impact Metrics
-                      </Link>
+                      </SmartDashboardLink>
                     </DropdownMenuItem>
                     <DropdownMenuItem asChild>
-                      <Link to="/dashboard#settings" className="flex items-center">
+                      <SmartDashboardLink className="flex items-center">
                         <Settings className="h-4 w-4 mr-2" />
                         Settings
-                      </Link>
+                      </SmartDashboardLink>
                     </DropdownMenuItem>
                     <DropdownMenuSeparator />
                     <DropdownMenuItem onClick={logout} className="text-red-600">
@@ -535,10 +536,10 @@ export function EnterpriseHeader() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex items-center justify-between py-3 sm:py-2">
               <div className="hidden lg:flex items-center space-x-6 text-sm">
-                <Link to="/dashboard" className="flex items-center space-x-1 text-green-700 hover:text-green-900 transition-colors">
+                <SmartDashboardLink className="flex items-center space-x-1 text-green-700 hover:text-green-900 transition-colors">
                   <User className="h-4 w-4" />
                   <span>Dashboard</span>
-                </Link>
+                </SmartDashboardLink>
                 <Link to="/news" className="flex items-center space-x-1 text-green-700 hover:text-green-900 transition-colors">
                   <Bell className="h-4 w-4" />
                   <span>News & Events</span>

@@ -14,6 +14,10 @@ import ServiceIndex from "./pages/ServiceIndex";
 import JoinPact from "./pages/JoinPact";
 import Pricing from "./pages/Pricing";
 import About from "./pages/About";
+import Dashboard from "./pages/Dashboard";
+import IndigenousGuardianDashboard from "./pages/IndigenousGuardianDashboard";
+import ResearcherDashboard from "./pages/ResearcherDashboard";
+import DashboardSelector from "./components/DashboardSelector";
 import { CorporatePartnership } from "./components/CorporatePartnership";
 import { ImmersiveExperiences } from "./components/ImmersiveExperiences";
 import { WildlifeDiplomacy } from "./components/WildlifeDiplomacy";
@@ -23,6 +27,7 @@ import BackendDashboard from "./components/dashboards/BackendDashboard";
 import APIDashboard from "./components/dashboards/APIDashboard";
 import DatabaseDashboard from "./components/dashboards/DatabaseDashboard";
 import { EnterpriseLayout } from "./components/EnterpriseLayout";
+import { EnterpriseLayoutWithBanner } from "./components/EnterpriseLayoutWithBanner";
 
 const queryClient = new QueryClient();
 
@@ -42,7 +47,7 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<EnterpriseLayout showHero={true}><Index /></EnterpriseLayout>} />
+          <Route path="/" element={<EnterpriseLayoutWithBanner showHero={true} showFundingBanner={true}><Index /></EnterpriseLayoutWithBanner>} />
           <Route path="/crown-bioregions" element={<EnterpriseLayout><CrownBioregions /></EnterpriseLayout>} />
           <Route path="/kenya-accord" element={<EnterpriseLayout><KenyaAccord /></EnterpriseLayout>} />
           <Route path="/royal-legacy" element={<EnterpriseLayout><RoyalLegacy /></EnterpriseLayout>} />
@@ -57,6 +62,10 @@ const App = () => (
           <Route path="/dashboard/backend" element={<EnterpriseLayout><BackendDashboard /></EnterpriseLayout>} />
           <Route path="/dashboard/api" element={<EnterpriseLayout><APIDashboard /></EnterpriseLayout>} />
           <Route path="/dashboard/database" element={<EnterpriseLayout><DatabaseDashboard /></EnterpriseLayout>} />
+          <Route path="/dashboard-selector" element={<EnterpriseLayout><DashboardSelector /></EnterpriseLayout>} />
+          <Route path="/steward-dashboard" element={<EnterpriseLayout><Dashboard /></EnterpriseLayout>} />
+          <Route path="/indigenous-guardian-dashboard" element={<EnterpriseLayout><IndigenousGuardianDashboard /></EnterpriseLayout>} />
+          <Route path="/researcher-dashboard" element={<EnterpriseLayout><ResearcherDashboard /></EnterpriseLayout>} />
           <Route path="/about" element={<EnterpriseLayout><About /></EnterpriseLayout>} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<EnterpriseLayout><NotFound /></EnterpriseLayout>} />
