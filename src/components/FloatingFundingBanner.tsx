@@ -17,6 +17,7 @@ import { Link } from "react-router-dom";
 interface FloatingFundingBannerProps {
   onClose?: () => void;
   position?: 'top' | 'bottom';
+  floating?: boolean;
 }
 
 const FloatingFundingBanner = ({ 
