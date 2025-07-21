@@ -20,9 +20,10 @@ interface FloatingFundingBannerProps {
   floating?: boolean;
 }
 
-const FloatingFundingBanner = ({ 
+const FloatingFundingBanner = ({
   onClose,
-  position = 'top'
+  position = 'top',
+  floating = true
 }: FloatingFundingBannerProps) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
